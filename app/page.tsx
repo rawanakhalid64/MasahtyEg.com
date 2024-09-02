@@ -28,10 +28,8 @@ const ExampleJsx = () => {
         rounded-full mx-auto xl:mx-0
         "
               >
-                
-
-                <div className="uppercase text-base font-medium text-[#627577] ">
-                  ahmed waleed{" "}
+                <div className=" text-base font-medium text-[#627577] ">
+                  عيش حياة سعيدة معانا.
                 </div>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -71,12 +69,49 @@ const ExampleJsx = () => {
           </div>
         </div>
       </section>
-      <section className="h-[100vh] bg-gray-50 py-12 xl:pt-12 xl:pb-0 overflow-hidden">
-      <div className="container mx-auto h-full">
-      <div className="flex flex-col xl:flex-row items-center justify-between h-full ">
-        
-      </div>
-      </div>
+      <section className="h-[100vh] bg-gray-50  xl:pb-0 overflow-hidden">
+        <div className="container mx-auto h-full">
+          <div className="flex flex-col xl:flex-col items-start justify-center h-auto ">
+            <div className=" w-full flex flex-col items-center justify-center">
+              <h2 className=" border-b-2  py-3 border-[#198754]">
+                تعرف علي مصحتي؟
+              </h2>
+            </div>
+            <div className="flex flex-col xl:flex-row ">
+              <h5 className=" ">
+                تعد مصحتي من أفضل مراكزعلاج الإدمان في الشرق الأوسط بشهادة
+                متعافيها، حيث حققت نجاحًا كبيرًا في معالجة مرضى الإدمان بنسبة
+                نجاح تجاوزت الـ %94 علي مدار الـ 7 أعوام الماضية، وتوافد على
+                المركز الكثير من الحالات من أنحاء الجمهورية نظراً لي..
+              </h5>
+            </div>
+            <div  className=" flex flex-row gap-2">
+              <div className="pl-2 pt-10 font-medium text-[#627577]">
+                <ul>
+                  <li>
+                    وجود فريق متخصص من الأطباء النفسيين والمعالجين المدربين
+                    تدريبًا عاليًا لعلاج الأمراض النفسية والإدمان.
+                  </li>
+                  <li>
+                    تطبيق ثلاث مراحل علاجية أثبتت نجاحها على مستوى العالم.
+                  </li>
+                  <li>متابعة العميل بصفة دورية بعد التخرج من المرك.</li>
+                  <li>برنامج مكثف للمنتكسين بعد توفرالشروط المناسبة.</li>
+                  <li>
+                    نقاهة وإقامة فندقية وسرية تامة في العلاج للمحافظة على خصوصية
+                    العميل.
+                  </li>
+                  <li>تخضع للرقابة والجودة العلاجية.</li>
+                  <li>يوجد فروع إقتصادية وتسهيلات لبعض الأُسر.</li>
+                  <li>سمعة طيبة على مدار السنوات الماضية.</li>
+                </ul>
+              </div>
+              <div className="max-w-[30%] mb-4 hero__img h-full hidden xl:flex">
+                <img src="https://res.cloudinary.com/dvgqyejfc/image/upload/v1725301105/2150161940_wlixns.webp"  alt="img2"/>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
     </>
     // <article className="prose-m-none">
