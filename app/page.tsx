@@ -31,7 +31,7 @@ const ExampleJsx = () => {
                 
 
                 <div className="uppercase text-base font-medium text-[#627577] ">
-                  عيش حياة سعيدة معنا{" "}
+                  ahmed waleed{" "}
                 </div>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
