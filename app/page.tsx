@@ -29,9 +29,7 @@ const ExampleJsx = () => {
         rounded-full mx-auto xl:mx-0
         "
               >
-                <div className=" text-base font-medium text-[#627577] ">
-                  عيش حياة سعيدة معانا.
-                
+               
 
                 <div className="uppercase text-base font-medium text-[#627577] ">
                 عيش حياة سعيدة معنا{" "}
