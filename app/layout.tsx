@@ -26,10 +26,10 @@ const fontSans = FontSans({
 });
 
 export const metadata: Metadata = {
-  title: "WordPress & Next.js Starter by 9d8",
+  title: "Mashety",
   description:
-    "A starter template for Next.js with WordPress as a headless CMS.",
-  metadataBase: new URL("https://wp.9d8.dev"),
+    "Mashety",
+  metadataBase: new URL("https://masahtyeg.com"),
 };
 
 // Revalidate content every hour
@@ -66,7 +66,7 @@ const Nav = ({ className, children, id }: NavProps) => {
   return (
     <nav
       className={cn(
-        "sticky z-50 top-0 bg-background",
+        "sticky z-50 top-0 bg-[#198754]",
         "border-b",
         "fade-in",
         className,
@@ -75,34 +75,29 @@ const Nav = ({ className, children, id }: NavProps) => {
     >
       <div
         id="nav-container"
-        className="max-w-5xl mx-auto py-4 px-6 sm:px-8 flex justify-between items-center"
+        className="lg:max-w-7xl max-w-5xl mx-auto px-4 md:px-0 py-4 flex justify-between items-center"
       >
         <Link
-          className="hover:opacity-75 transition-all flex gap-2 items-center"
-          href="/"
-        >
-          <h2 className="sr-only">next-wp starter</h2>
-          <Image
-            src={Logo}
-            alt="Logo"
-            className="dark:invert"
-            width={84}
-            height={30.54}
-          ></Image>
-        </Link>
+      className="flex items-center gap-2 transition-all duration-300 hover:opacity-80 hover:scale-105 transform"
+      href="/"
+    >
+      <h2 className="text-2xl text-white font-bold text-primary-500 tracking-wide">
+        مصحتي
+      </h2>
+    </Link>
         {children}
         <div className="flex items-center gap-2">
           <div className="mx-2 hidden md:flex">
-            {Object.entries(mainMenu).map(([key, href]) => (
-              <Button key={href} asChild variant="ghost" size="sm">
-                <Link href={href}>
-                  {key.charAt(0).toUpperCase() + key.slice(1)}
-                </Link>
-              </Button>
-            ))}
+          {mainMenu.map((item) => (
+            <Button key={item.name} asChild variant="ghost" size="sm">
+            <Link href={item.href} className="text-white text-xl">
+            {item.name}
+            </Link>
+          </Button>
+        ))}
           </div>
           <Button asChild className="hidden sm:flex">
-            <Link href="https://github.com/9d8dev/next-wp">Get Started</Link>
+            <Link href="https://github.com/9d8dev/next-wp" className="text-xl">تواصل معنا</Link>
           </Button>
           <MobileNav />
         </div>
@@ -133,27 +128,19 @@ const Footer = () => {
           </div>
           <div className="flex flex-col gap-2 text-sm">
             <h5 className="font-medium text-base">Website</h5>
-            {Object.entries(mainMenu).map(([key, href]) => (
-              <Link
-                className="hover:underline underline-offset-4"
-                key={href}
-                href={href}
-              >
-                {key.charAt(0).toUpperCase() + key.slice(1)}
-              </Link>
-            ))}
+            {mainMenu.map((item) => (
+            <Link key={item.name} href={item.href} className="hover:underline underline-offset-4">
+            {item.name}
+            </Link>
+        ))}
           </div>
           <div className="flex flex-col gap-2 text-sm">
             <h5 className="font-medium text-base">Blog</h5>
-            {Object.entries(contentMenu).map(([key, href]) => (
-              <Link
-                className="hover:underline underline-offset-4"
-                key={href}
-                href={href}
-              >
-                {key.charAt(0).toUpperCase() + key.slice(1)}
-              </Link>
-            ))}
+            {contentMenu.map((item) => (
+            <Link key={item.name} href={item.href} className="hover:underline underline-offset-4">
+              {item.name}
+            </Link>
+        ))}
           </div>
         </Container>
         <Container className="border-t not-prose flex flex-col md:flex-row md:gap-2 gap-6 justify-between md:items-center">
