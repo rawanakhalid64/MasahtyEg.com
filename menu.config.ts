@@ -1,12 +1,13 @@
 // Define the menu items
-export const mainMenu = {
-  home: "/",
-  about: "https://github.com/9d8dev/next-wp",
-  blog: "/posts",
-};
+export const mainMenu = [
+  { name: "الرئيسية", href: "/" },
+  { name: "من نحن", href: "https://github.com/9d8dev/next-wp" },
+  { name: "الخدمات", href: "" },
+  { name: "المدونة", href: "/posts" }
+]
 
-export const contentMenu = {
-  categories: "/posts/categories",
-  tags: "/posts/tags",
-  authors: "/posts/authors",
-};
+export const contentMenu = [
+  { name: "categories", href: "/posts/categories" },
+  { name: "tags", href: "/posts/tags" },
+  { name: "authors", href: "/posts/authors" }
+]
