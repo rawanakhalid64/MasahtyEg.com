@@ -69,7 +69,7 @@ export default function FilterPosts({
           <SelectValue placeholder="All Tags" />
         </SelectTrigger>
         <SelectContent>
-          <SelectItem value="all">All Tags</SelectItem>
+          <SelectItem value="all">كل الكمات</SelectItem>
           {tags.map((tag) => (
             <SelectItem key={tag.id} value={tag.id.toString()}>
               {tag.name}
@@ -86,7 +86,7 @@ export default function FilterPosts({
           <SelectValue placeholder="All Categories" />
         </SelectTrigger>
         <SelectContent>
-          <SelectItem value="all">All Categories</SelectItem>
+          <SelectItem value="all">كل الفئات</SelectItem>
           {categories.map((category) => (
             <SelectItem key={category.id} value={category.id.toString()}>
               {category.name}
@@ -103,7 +103,7 @@ export default function FilterPosts({
           <SelectValue placeholder="All Authors" />
         </SelectTrigger>
         <SelectContent>
-          <SelectItem value="all">All Authors</SelectItem>
+          <SelectItem value="all">كاتب المقالة</SelectItem>
           {authors.map((author) => (
             <SelectItem key={author.id} value={author.id.toString()}>
               {author.name}
@@ -113,7 +113,7 @@ export default function FilterPosts({
       </Select>
 
       <Button variant="outline" onClick={handleResetFilters}>
-        Reset Filters
+      إعادة تعيين
       </Button>
     </div>
   );

@@ -40,8 +40,8 @@ export default async function Page({
 
   return (
     <Section>
-      <Container>
-        <h1>Ahmed</h1>
+      <Container size="7">
+        <h1>المدونة</h1>
         <FilterPosts
           authors={authors}
           tags={tags}
@@ -59,7 +59,7 @@ export default async function Page({
           </div>
         ) : (
           <div className="h-24 w-full border rounded-lg bg-accent/25 flex items-center justify-center">
-            <p>No Results Found</p>
+            <p>لا يوجد نتائج</p>
           </div>
         )}
 

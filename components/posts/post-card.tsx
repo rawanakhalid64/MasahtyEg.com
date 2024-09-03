@@ -24,7 +24,7 @@ export default async function PostCard({ post }: { post: Post }) {
     <Link
       href={`/posts/${post.slug}`}
       className={cn(
-        "border p-4 bg-accent/30 rounded-lg group flex justify-between flex-col not-prose gap-8",
+        "border bg-accent/30 rounded-lg group flex justify-between flex-col not-prose gap-8",
         "hover:bg-accent/75 transition-all"
       )}
     >
@@ -38,6 +38,7 @@ export default async function PostCard({ post }: { post: Post }) {
             height={200}
           />
         </div>
+        <div className="p-4">
         <div
           dangerouslySetInnerHTML={{ __html: post.title.rendered }}
           className="text-xl text-primary font-medium group-hover:underline decoration-muted-foreground underline-offset-4 decoration-dotted transition-all"
@@ -50,9 +51,10 @@ export default async function PostCard({ post }: { post: Post }) {
               "...",
           }}
         ></div>
+        </div>
       </div>
 
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 p-4">
         <hr />
         <div className="flex justify-between items-center text-xs">
           <p>{category.name}</p>

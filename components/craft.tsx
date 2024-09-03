@@ -82,11 +82,12 @@ type ContainerProps = {
   children: React.ReactNode;
   className?: string;
   id?: string;
+  size?: string;
 };
 
-const Container = ({ children, className, id }: ContainerProps) => {
+const Container = ({ children, className, id, size }: ContainerProps) => {
   return (
-    <div className={cn("mx-auto max-w-5xl", "p-6 sm:p-8", className)} id={id}>
+    <div className={cn(`mx-auto`, size==="7" ? "max-w-7xl" : "max-w-5xl" , "p-6 sm:p-8", className)} id={id}>
       {children}
     </div>
   );
