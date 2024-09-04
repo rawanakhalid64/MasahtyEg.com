@@ -8,6 +8,7 @@ import Link from "next/link";
 // Icons
 import { File, Pen, Tag, Boxes, User, Folder } from "lucide-react";
 import Services from "@/components/services/services";
+import Info from "@/components/info/info"
 import Image from "next/image";
 // import { Image } from 'next/image';
 
@@ -18,25 +19,55 @@ export default function Home() {
 
 // This is just some example JS to demonstrate automatic styling from brijr/craft
 const ExampleJsx = () => {
- 
-   
   const servicesData = [
     {
-      image: 'https://res.cloudinary.com/dvgqyejfc/image/upload/v1725367791/psychoanalyst-giving-consultation-young-man-about-his-relationship-problems_qhcrjn.webp',
-      title: 'برنامج الإقامة الكاملة',
-    link: '/posts/service-one',
+      image:
+        "https://res.cloudinary.com/dvgqyejfc/image/upload/v1725367791/psychoanalyst-giving-consultation-young-man-about-his-relationship-problems_qhcrjn.webp",
+      title: "برنامج الإقامة الكاملة",
+      link: "/posts/service-one",
     },
     {
-      image: 'https://res.cloudinary.com/dvgqyejfc/image/upload/v1725367784/young-person-suffering-from-anxiety_s8jmlv.webp',
-      title: 'برنامج الإقامة الكاملة',
-      link: '/posts/service-one',
+      image:
+        "https://res.cloudinary.com/dvgqyejfc/image/upload/v1725367784/young-person-suffering-from-anxiety_s8jmlv.webp",
+      title: "برنامج الإقامة الكاملة",
+      link: "/posts/service-one",
+
     },
     {
-      image: 'https://res.cloudinary.com/dvgqyejfc/image/upload/v1725367784/young-person-suffering-from-anxiety_s8jmlv.webp',
-      title: 'برنامج الإقامة الكاملة',
-      link: '/posts/service-one',
+      image:
+        "https://res.cloudinary.com/dvgqyejfc/image/upload/v1725367784/young-person-suffering-from-anxiety_s8jmlv.webp",
+      title: "برنامج الإقامة الكاملة",
+      link: "/posts/service-one",
+
     },
-  ]; 
+  ];
+
+  const infoData =[
+    {
+      image:
+        "https://res.cloudinary.com/dvgqyejfc/image/upload/v1725367791/psychoanalyst-giving-consultation-young-man-about-his-relationship-problems_qhcrjn.webp",
+      title: "9نصائح تحمي بها نفسك من الاعتداء الجنسي تحت تأثير المخدرة",
+      link: "/posts/service-one",
+      description:"لا يتوقف العلاج لدينا بمجرد انتهاء البرنامج التأهيلي أو الخروج من المستشفى، بل المتابعة البعدية جزء أصيل من العلاج لدينا للحفاظ على متعافينا من عدم الانتكاس والوصول بهم إلى بر الأمان"
+    },
+    {
+      image:
+        "https://res.cloudinary.com/dvgqyejfc/image/upload/v1725367784/young-person-suffering-from-anxiety_s8jmlv.webp",
+      title: "  ما هي أقراص الكبتاجون؟",
+      link: "/posts/service-one",
+      description:"لا يتوقف العلاج لدينا بمجرد انتهاء البرنامج التأهيلي أو الخروج من المستشفى، بل المتابعة البعدية جزء أصيل من العلاج لدينا للحفاظ على متعافينا من عدم الانتكاس والوصول بهم إلى بر الأمان"
+
+    },
+    {
+      image:
+        "https://res.cloudinary.com/dvgqyejfc/image/upload/v1725367784/young-person-suffering-from-anxiety_s8jmlv.webp",
+      title: "إدمان المنشطات الرياضية",
+      link: "/posts/service-one",
+      description:"لا يتوقف العلاج لدينا بمجرد انتهاء البرنامج التأهيلي أو الخروج من المستشفى، بل المتابعة البعدية جزء أصيل من العلاج لدينا للحفاظ على متعافينا من عدم الانتكاس والوصول بهم إلى بر الأمان"
+
+    },
+  ];
+  
 
   return (
     <>
@@ -50,10 +81,8 @@ const ExampleJsx = () => {
         rounded-full mx-auto xl:mx-0
         "
               >
-               
-
                 <div className="uppercase text-base font-medium text-[#627577] ">
-                عيش حياة سعيدة معنا{" "}
+                  عيش حياة سعيدة معنا{" "}
                 </div>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -85,13 +114,13 @@ const ExampleJsx = () => {
 
             {/* image */}
             <div className="hero__img h-full hidden xl:flex xl:w-[50%] self-start relative">
-      <Image
-        src="https://res.cloudinary.com/dvgqyejfc/image/upload/v1725279792/close-up-man-discussing-with-therapist_xqz3mb.webp"
-        alt="img-banner"
-        fill
-        className="object-cover !m-0" // Add object-cover to control the image fill behavior
-      />
-    </div>
+              <Image
+                src="https://res.cloudinary.com/dvgqyejfc/image/upload/v1725279792/close-up-man-discussing-with-therapist_xqz3mb.webp"
+                alt="img-banner"
+                fill
+                className="object-cover !m-0" // Add object-cover to control the image fill behavior
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -110,8 +139,8 @@ const ExampleJsx = () => {
                 نجاح تجاوزت الـ %94 علي مدار الـ 7 أعوام الماضية، وتوافد على
                 المركز الكثير من الحالات من أنحاء الجمهورية نظراً لي..
               </h5>
-            </div> 
-            <div  className=" flex flex-row gap-2">
+            </div>
+            <div className=" flex flex-row gap-2">
               <div className="pl-2 pt-10 font-medium text-[#627577]">
                 <ul>
                   <li>
@@ -133,7 +162,10 @@ const ExampleJsx = () => {
                 </ul>
               </div>
               <div className="max-w-[30%] mb-4 hero__img h-full hidden xl:flex">
-                <img src="https://res.cloudinary.com/dvgqyejfc/image/upload/v1725301105/2150161940_wlixns.webp"  alt="img2"/>
+                <img
+                  src="https://res.cloudinary.com/dvgqyejfc/image/upload/v1725301105/2150161940_wlixns.webp"
+                  alt="img2"
+                />
               </div>
             </div>
           </div>
@@ -141,10 +173,11 @@ const ExampleJsx = () => {
       </section>
 
       <section className="bg-gray-50 py-12 xl:pt-12 xl:pb-0 overflow-hidden">
-      
-  <Services servicesData={servicesData} />
-      
-     
+        <Services servicesData={servicesData} />
+      </section>
+
+      <section className="bg-gray-50 py-12 xl:pt-12 xl:pb-0 overflow-hidden">
+      <Info infoData={infoData} />
       </section>
     </>
     // <article className="prose-m-none">

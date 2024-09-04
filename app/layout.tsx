@@ -109,10 +109,10 @@ const Nav = ({ className, children, id }: NavProps) => {
 const Footer = () => {
   return (
     <footer>
-      <section className=" fade-in-10">
+      <section className=" fade-in-10 mt-6 bg-[#198754] text-white">
         <Container className="grid md:grid-cols-[1.5fr_0.5fr_0.5fr] gap-12">
           <div className="flex flex-col gap-6 not-prose">
-            <Link href="/">
+            {/* <Link href="/">
               <h3 className="sr-only">brijr/components</h3>
               <Image
                 src={Logo}
@@ -121,33 +121,43 @@ const Footer = () => {
                 height={27.27}
                 className="dark:invert hover:opacity-75 transition-all"
               ></Image>
-            </Link>
-            <p>
-              <Balancer>{metadata.description}</Balancer>
-            </p>
-          </div>
-          <div className="flex flex-col gap-2 text-sm">
-            <h5 className="font-medium text-base">Website</h5>
+            </Link> */}
+            <Link
+      className="flex items-center gap-2 transition-all duration-300 hover:opacity-80 hover:scale-105 transform"
+      href="/"
+    >
+      <h2 className="text-2xl text-white font-bold text-primary-500 tracking-wide">
+        مصحتي
+      </h2>
+    </Link>
+    <div className="flex flex-col gap-2 text-sm">
+             {/* <h5 className="font-medium text-base">Website</h5> */}
             {mainMenu.map((item) => (
             <Link key={item.name} href={item.href} className="hover:underline underline-offset-4">
             {item.name}
             </Link>
         ))}
           </div>
+            <p>
+              {/* <Balancer>{metadata.description}</Balancer> */}
+            </p>
+          </div> 
+          
           <div className="flex flex-col gap-2 text-sm">
-            <h5 className="font-medium text-base">Blog</h5>
+            {/* <h5 className="font-medium text-base">Blog</h5>
             {contentMenu.map((item) => (
             <Link key={item.name} href={item.href} className="hover:underline underline-offset-4">
               {item.name}
             </Link>
-        ))}
+        ))} */}
           </div>
         </Container>
         <Container className="border-t not-prose flex flex-col md:flex-row md:gap-2 gap-6 justify-between md:items-center">
           <ThemeToggle />
-          <p className="text-muted-foreground">
-            © <a href="https://9d8.dev">9d8</a>. All rights reserved.
-            2024-present.
+          <p className="text-muted-foreground text-white">
+          جميع الحقوق محفوظه لمركز 
+
+            © <a href="https://9d8.dev">Mashty</a>. 
           </p>
         </Container>
       </section>

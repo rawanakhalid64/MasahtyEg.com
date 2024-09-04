@@ -18,7 +18,13 @@ interface ServicesProps {
 const Services: React.FC<ServicesProps> = ({ servicesData }) => {
   return (
       <div className="container mx-auto">
+         <div className=" w-full flex flex-col items-center justify-center">
+              <h2 className=" border-b-2  py-3 border-[#198754]">
+              اهم البرامج العلاجية
+              </h2>
+            </div>
       <div className="grid md:grid-cols-3 gap-6 mt-6 not-prose">
+        
         {servicesData.map((service) => (
         <Link
           key={`${service.title}-${Date.now()}`}

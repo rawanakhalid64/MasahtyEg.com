@@ -11,3 +11,4 @@ export const contentMenu = [
   { name: "tags", href: "/posts/tags" },
   { name: "authors", href: "/posts/authors" }
 ]
+//icons
