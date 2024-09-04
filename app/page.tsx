@@ -7,6 +7,7 @@ import Link from "next/link";
 
 // Icons
 import { File, Pen, Tag, Boxes, User, Folder } from "lucide-react";
+import Services from "@/components/services/services";
 import Image from "next/image";
 // import { Image } from 'next/image';
 
@@ -17,6 +18,26 @@ export default function Home() {
 
 // This is just some example JS to demonstrate automatic styling from brijr/craft
 const ExampleJsx = () => {
+ 
+   
+  const servicesData = [
+    {
+      image: 'https://res.cloudinary.com/dvgqyejfc/image/upload/v1725367791/psychoanalyst-giving-consultation-young-man-about-his-relationship-problems_qhcrjn.webp',
+      title: 'برنامج الإقامة الكاملة',
+    link: '/posts/service-one',
+    },
+    {
+      image: 'https://res.cloudinary.com/dvgqyejfc/image/upload/v1725367784/young-person-suffering-from-anxiety_s8jmlv.webp',
+      title: 'برنامج الإقامة الكاملة',
+      link: '/posts/service-one',
+    },
+    {
+      image: 'https://res.cloudinary.com/dvgqyejfc/image/upload/v1725367784/young-person-suffering-from-anxiety_s8jmlv.webp',
+      title: 'برنامج الإقامة الكاملة',
+      link: '/posts/service-one',
+    },
+  ]; 
+
   return (
     <>
       <section className="hero h-[calc(100vh-72px)] bg-gray-50 xl:pb-0 overflow-hidden">
@@ -89,7 +110,7 @@ const ExampleJsx = () => {
                 نجاح تجاوزت الـ %94 علي مدار الـ 7 أعوام الماضية، وتوافد على
                 المركز الكثير من الحالات من أنحاء الجمهورية نظراً لي..
               </h5>
-            </div>
+            </div> 
             <div  className=" flex flex-row gap-2">
               <div className="pl-2 pt-10 font-medium text-[#627577]">
                 <ul>
@@ -120,49 +141,9 @@ const ExampleJsx = () => {
       </section>
 
       <section className="bg-gray-50 py-12 xl:pt-12 xl:pb-0 overflow-hidden">
-        <div className="container mx-auto">
-        <div className="grid md:grid-cols-3 gap-6 mt-6 not-prose">
-        <Link
-          className="group border bg-white rounded-lg flex flex-col justify-between hover:shadow-lg transition-all transform hover:scale-[1.02] overflow-hidden"
-          href="/posts"
-        >
-          <img
-            className="rounded-t-lg object-cover h-48 w-full group-hover:opacity-90 transition-opacity duration-300"
-            src="https://masahtyeg.com/images/Media/patient-sits-hospital-bed-worrying-about-future.jpg"
-            alt="Patient sitting in hospital bed"
-          />
-          <span className="p-4 text-lg font-semibold text-gray-800 group-hover:text-[#198754] transition-colors duration-300">
-            برنامج الإقامة الكاملة
-          </span>
-        </Link>
-        <Link
-          className="group border bg-white rounded-lg flex flex-col justify-between hover:shadow-lg transition-all transform hover:scale-[1.02] overflow-hidden"
-          href="/posts"
-        >
-          <img
-            className="rounded-t-lg object-cover h-48 w-full group-hover:opacity-90 transition-opacity duration-300"
-            src="https://masahtyeg.com/images/Media/patient-sits-hospital-bed-worrying-about-future.jpg"
-            alt="Patient sitting in hospital bed"
-          />
-          <span className="p-4 text-lg font-semibold text-gray-800 group-hover:text-[#198754] transition-colors duration-300">
-            برنامج الإقامة الكاملة
-          </span>
-        </Link>
-        <Link
-          className="group border bg-white rounded-lg flex flex-col justify-between hover:shadow-lg transition-all transform hover:scale-[1.02] overflow-hidden"
-          href="/posts"
-        >
-          <img
-            className="rounded-t-lg object-cover h-48 w-full group-hover:opacity-90 transition-opacity duration-300"
-            src="https://masahtyeg.com/images/Media/patient-sits-hospital-bed-worrying-about-future.jpg"
-            alt="Patient sitting in hospital bed"
-          />
-          <span className="p-4 text-lg font-semibold text-gray-800 group-hover:text-[#198754] transition-colors duration-300">
-            برنامج الإقامة الكاملة
-          </span>
-        </Link>
-      </div>
-        </div>
+      
+  <Services servicesData={servicesData} />
+      
      
       </section>
     </>
