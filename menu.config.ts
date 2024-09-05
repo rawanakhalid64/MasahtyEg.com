@@ -2,7 +2,7 @@
 export const mainMenu = [
   { name: "الرئيسية", href: "/" },
   { name: "من نحن", href: "https://github.com/9d8dev/next-wp" },
-  { name: "الخدمات", href: "" },
+  { name: "البرامج", href: "" },
   { name: "المدونة", href: "/posts" }
 ]
 

@@ -1,7 +1,9 @@
+
 import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import { Analytics } from "@vercel/analytics/react";
+
 
 import "./globals.css";
 
@@ -62,14 +64,20 @@ export default function RootLayout({
   );
 }
 
-const Nav = ({ className, children, id }: NavProps) => {
+interface NavProps {
+  className?: string;
+  children?: React.ReactNode;
+  id?: string;
+}
+
+const Nav: React.FC<NavProps> = ({ className, children, id }) => {
   return (
     <nav
       className={cn(
         "sticky z-50 top-0 bg-[#198754]",
         "border-b",
         "fade-in",
-        className,
+        className
       )}
       id={id}
     >
@@ -78,33 +86,65 @@ const Nav = ({ className, children, id }: NavProps) => {
         className="lg:max-w-7xl max-w-5xl mx-auto px-4 md:px-0 py-4 flex justify-between items-center"
       >
         <Link
-      className="flex items-center gap-2 transition-all duration-300 hover:opacity-80 hover:scale-105 transform"
-      href="/"
-    >
-      <h2 className="text-2xl text-white font-bold text-primary-500 tracking-wide">
-        مصحتي
-      </h2>
-    </Link>
+          className="flex items-center gap-2 transition-all duration-300 hover:opacity-80 hover:scale-105 transform"
+          href="/"
+        >
+          <h2 className="text-2xl text-white font-bold text-primary-500 tracking-wide">
+            مصحتي
+          </h2>
+        </Link>
+
         {children}
+
         <div className="flex items-center gap-2">
           <div className="mx-2 hidden md:flex">
-          {mainMenu.map((item) => (
-            <Button key={item.name} asChild variant="ghost" size="sm">
-            <Link href={item.href} className="text-white text-xl">
-            {item.name}
+            {mainMenu.map((item) =>
+              item.name === "البرامج" ? (
+                <div key={item.name} className="relative group">
+                  <Button variant="ghost" size="sm">
+                    <span className="text-white text-xl hover:text-black">{item.name}</span>
+                  </Button>
+
+                  {/* Dropdown Menu */}
+                  <div className="absolute top-full mt-2 w-48 bg-white shadow-lg rounded-md py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-500">
+                    <Link
+                      href="/addiction-programs"
+                      className="block px-4 py-2 text-[#198754] hover:bg-gray-100"
+                    >
+                      برامج الادمان
+                    </Link>
+                    <Link
+                      href="/mental-health-programs"
+                      className="block px-4 py-2 text-[#198754] hover:bg-gray-100"
+                    >
+                      برامج الامراض النفسيه
+                    </Link>
+                  </div>
+                </div>
+              ) : (
+                <Button key={item.name} asChild variant="ghost" size="sm">
+                  <Link href={item.href} className="text-white text-xl">
+                    {item.name}
+                  </Link>
+                </Button>
+              )
+            )}
+          </div>
+
+          <Button asChild className="hidden sm:flex">
+            <Link href="https://github.com/9d8dev/next-wp" className="text-xl">
+              تواصل معنا
             </Link>
           </Button>
-        ))}
-          </div>
-          <Button asChild className="hidden sm:flex">
-            <Link href="https://github.com/9d8dev/next-wp" className="text-xl">تواصل معنا</Link>
-          </Button>
+
           <MobileNav />
         </div>
       </div>
     </nav>
   );
 };
+
+
 
 const Footer = () => {
   return (
