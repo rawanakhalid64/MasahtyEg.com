@@ -1,7 +1,7 @@
 // Define the menu items
 export const mainMenu = [
   { name: "الرئيسية", href: "/" },
-  { name: "من نحن", href: "https://github.com/9d8dev/next-wp" },
+  { name: "من نحن", href: "/about" },
   { name: "البرامج", href: "" },
   { name: "المدونة", href: "/posts" }
 ]

@@ -4,7 +4,7 @@ import { Inter as FontSans } from "next/font/google";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import { Analytics } from "@vercel/analytics/react";
 
-
+import LazyYouTube from "@/components/video/LazyYouTube";
 import "./globals.css";
 
 import { Button } from "@/components/ui/button";
@@ -132,7 +132,7 @@ const Nav: React.FC<NavProps> = ({ className, children, id }) => {
           </div>
 
           <Button asChild className="hidden sm:flex">
-            <Link href="https://github.com/9d8dev/next-wp" className="text-xl">
+            <Link href="/contactus" className="text-xl">
               تواصل معنا
             </Link>
           </Button>
@@ -190,6 +190,7 @@ const Footer = () => {
               {item.name}
             </Link>
         ))} */}
+          <LazyYouTube videoId="T3mgD-mJZVI" width="100%" height="350px" />
           </div>
         </Container>
         <Container className="border-t not-prose flex flex-col md:flex-row md:gap-2 gap-6 justify-between md:items-center">
