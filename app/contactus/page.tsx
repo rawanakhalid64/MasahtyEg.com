@@ -1,9 +1,115 @@
+'use client'
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
+
+const INPUT = 'INPUT'
+const TEXTAREA = 'TEXTAREA'
+
+const initalFields = [
+  {
+    label: 'الأسم',
+    component: INPUT,
+    type: 'text',
+    name: 'your-name',
+    id: 'full_name',
+    validation_error: false,
+    validation_message: ''
+  },
+  {
+    label: 'البريد الإلكتروني',
+    component: INPUT,
+    type: 'email',
+    name: 'your-email',
+    id: 'email',
+    validation_error: false,
+    validation_message: ''
+  },
+  {
+    label: 'رقم الهاتف',
+    component: INPUT,
+    type: 'number',
+    name: 'your-phone',
+    id: 'phone',
+    validation_error: false,
+    validation_message: ''
+  },
+  {
+    label: 'الموضوع',
+    component: INPUT,
+    type: 'text',
+    name: 'your-subject',
+    id: 'subject',
+    validation_error: false,
+    validation_message: ''
+  },
+  {
+    label: 'الرسالة',
+    component: TEXTAREA,
+    type: 'text',
+    name: 'your-message ',
+    id: 'message',
+    validation_error: false,
+    validation_message: ''
+  }
+]
+
 const ContactForm = () => {
+  const [fields, setFields] = useState<any>(initalFields)
+  const [message, setMessage] = useState<any>(null);
+
+  const handleSubmit = async (event: any) => {
+    event.preventDefault();
+
+    setFields(fields.map((field: { name: any; }) => ({
+      ...field,
+      validation_error: false,
+      validation_message: ''
+    })))
+
+    const formData = new FormData(event.target);
+    formData.append('_wpcf7_unit_tag', 'a4d4456')
+
+    const reqOptions = {
+      method: 'POST',
+      body: formData,
+    }
+
+    const req = await fetch(`https://admin.toggle-eg.com/wp-json/contact-form-7/v1/contact-forms/66/feedback`, reqOptions)
+    const res: any = await req.json();
+
+    if (!res) return alert('an expected error occured')
+
+    if (res.invalid_fields && res.invalid_fields.length > 0) {
+      return setFields(fields.map((field: { name: any; }) => {
+        const error = res.invalid_fields.find((x: { field: any; }) => x.field === field.name)
+
+        return {
+          ...field,
+          validation_error: error ? true : false,
+          validation_message: error ? error.message : '',
+        }
+      }))
+    }
+
+    setMessage(res.message);
+  }
+
+  // Clear the message after 5 seconds
+  useEffect(() => {
+    if (message) {
+      const timer = setTimeout(() => {
+        setMessage(''); // Clear message
+      }, 5000);
+
+      return () => clearTimeout(timer); // Cleanup timeout if the component is unmounted or updated
+    }
+  }, [message]);
+
+
   return (
     <div className="container mx-auto px-4 gap-8">
       <div className="flex lg:mr-[200px] ">
-      
+
         <div className="w-full lg:w-5/12 md:w-7/12">
           <div className="form-area bg-white p-6 shadow-lg rounded-lg">
             {/* Contact Info */}
@@ -40,52 +146,61 @@ const ContactForm = () => {
                 </h2>
               </div>
               <div className="form mt-4">
-                <form>
-                  {/* Email Input */}
-                  <div className="form-group mb-4">
-                    <label
-                      htmlFor="Email"
-                      className="block font-bold text-[#198754]"
-                    >
-                      الايميل
-                    </label>
-                    <input
-                      type="email"
-                      id="Email"
-                      className="form-control mt-1 block w-full pr-4 py-2 border rounded-3xl bg-slate-100 border-gray-300  focus:ring-green-500 focus:border-green-500"
-                    />
-                  </div>
+                <form onSubmit={handleSubmit}>
+                  <select
+                    name="your-program"
+                    id="program"
+                    className="form-control mt-1 block w-full px-4 py-2 border rounded-3xl bg-slate-100 border-gray-300 focus:ring-green-500 focus:border-green-500"
+                  >
+                    <option value="برنامج الساعة">برنامج الساعة</option>
+                    <option value="برنامج الفرحة">برنامج الفرحة</option>
+                    <option value="برنامج الحصة">برنامج الحصة</option>
+                  </select>
+                  {fields.map((field: any) => (
+                    <div key={field.id} className="form-group mb-4">
+                      <label
+                        htmlFor="Name"
+                        className="block font-bold text-[#198754]"
+                      >
+                        {field.label}
+                      </label>
+                      {field.component === INPUT && <input
+                        type={field.type}
+                        name={field.name}
+                        id={field.id}
+                        className="form-control mt-1 block w-full pr-4 py-2 border rounded-3xl bg-slate-100 border-gray-300  focus:ring-green-500 focus:border-green-500"
+                      />}
+                      {field.component === TEXTAREA && <textarea
+                        name={field.name}
+                        id={field.id}
+                        rows={4}
+                        className="form-control mt-1 block w-full px-4 py-2 rounded-3xl bg-slate-100 border border-gray-300  focus:ring-green-500 focus:border-green-500"
+                      ></textarea>}
+                      {field.validation_error && <div className='text-base text-red-600'>
+                        {field.validation_message}
+                      </div>}
+                    </div>
+                  ))}
 
-                  {/* Message Input */}
-                  <div className="form-group mb-4">
-                    <label
-                      htmlFor="Message"
-                      className="block font-bold text-[#198754]"
-                    >
-                      اترك رسالتك
-                    </label>
-                    <textarea
-                      id="Message"
-                      rows={4}
-                      className="form-control mt-1 block w-full px-4 py-2 rounded-3xl bg-slate-100 border border-gray-300  focus:ring-green-500 focus:border-green-500"
-                    ></textarea>
-                  </div>
-
-                  {/* Submit Button */}
                   <div className="main-btn-wrap mt-6">
                     <input
                       type="submit"
                       value="ارسل الرسالة"
-                      className="main-btn px-6 py-2 bg-[#198754] text-white font-semibold rounded-3xl hover:bg-green-600 transition-colors duration-300"
+                      className="main-btn px-6 py-2 bg-[#198754] cursor-pointer text-white font-semibold rounded-3xl hover:bg-green-600 transition-colors duration-300"
                     />
                   </div>
+                  {message && (
+                    <div className='mt-4 p-3 rounded-md text-green-600'>
+                      {message}
+                    </div>
+                  )}
                 </form>
               </div>
             </div>
           </div>
         </div>
         <div className="hidden lg:block lg:w-5/12 md:w-5/12">
-        <Image
+          <Image
             src="https://res.cloudinary.com/dvgqyejfc/image/upload/v1725806694/depositphotos_3264465-stock-photo-telephone_zxb2is.webp"
             alt="Contact Us Image"
             width={600} // Specify a width
@@ -93,7 +208,7 @@ const ContactForm = () => {
             className="rounded-lg mt-4 "
             layout="responsive" // Optionally make it responsive
           />
-    </div>
+        </div>
       </div>
     </div>
   );
