@@ -9,26 +9,26 @@ import page from "../about/page";
 //   const data = await response.json();
 
   // Fetch media for each program (images)
-  
+
 
 export default async function Page() {
-  const pages = await getAllPrograms();
+  const programs = await getAllPrograms();
 
   return (
     <section>
       <div className="container mx-auto">
         <div className="w-full flex flex-col items-center justify-center">
           <h2 className="border-b-2 py-3 border-[#198754]">
-            اهم البرامج العلاجية
+              برامج علاج الادمان
           </h2>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6 mt-6 not-prose">
-          {pages.map((page: any) => (
+          {programs.map((page: any) => (
             <Link
               key={page.id}
               className="group border bg-white rounded-lg flex flex-col justify-between hover:shadow-lg transition-all transform hover:scale-[1.02] overflow-hidden"
-              href={`pages/${page.slug}`}
+              href={`programs/${page.slug}`}
             >
               <Image
                 src={page.imageUrl}
@@ -47,6 +47,32 @@ export default async function Page() {
           ))} 
         </div>
       </div>
+      <div className="w-full flex flex-col items-center justify-center mt-10">
+      <h2 className="border-b-2 py-3 border-[#198754]">برامج الأمراض النفسية</h2>
+    </div>
+
+    <div className="grid md:grid-cols-3 gap-6 mt-6 not-prose">
+      {programs.map((page: any) => (
+        <Link
+          key={page.id}
+          className="group border bg-white rounded-lg flex flex-col justify-between hover:shadow-lg transition-all transform hover:scale-[1.02] overflow-hidden"
+          href={`pages/${page.slug}`}
+        >
+          <Image
+            src={page.imageUrl}
+            alt={page.title.rendered}
+            width={300}
+            height={200}
+            className="rounded-t-lg object-cover h-48 w-full group-hover:opacity-90 transition-opacity duration-300"
+          />
+          <span className="p-4 text-lg font-semibold text-gray-800 group-hover:text-[#198754] transition-colors duration-300">
+            {page.title.rendered}
+          </span>
+          <p className="p-4 text-gray-600">{page.acf.describtion}</p>
+        </Link>
+      ))}
+    </div>
+  
     </section>
   );
 }

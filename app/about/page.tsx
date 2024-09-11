@@ -2,7 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 import LazyYouTube from "@/components/video/LazyYouTube";
 
-const page = () => {
+import async from './../../components/posts/post-card';
+
+const  Page = async () => {
+  
   //lazy loading video
 
   return (
@@ -122,9 +125,10 @@ const page = () => {
             </div>
           </div>
         </div>
+       
       </section>
     </>
   );
 };
 
-export default page;
+export default Page ;

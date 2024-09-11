@@ -2,8 +2,9 @@
 export const mainMenu = [
   { name: "الرئيسية", href: "/" },
   { name: "من نحن", href: "/about" },
-  { name: "البرامج", href: "" },
-  { name: "المدونة", href: "/posts" }
+  { name: "البرامج", href: "/pages" },
+  { name: "عالم التعافي ", href: "/posts" },
+  { name: " الدكاترة ", href: "/doctors" }
 ]
 
 export const contentMenu = [

@@ -108,7 +108,7 @@ const Nav: React.FC<NavProps> = ({ className, children, id }) => {
                   {/* Dropdown Menu */}
                   <div className="absolute top-full mt-2 w-48 bg-white shadow-lg rounded-md py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-500">
                     <Link
-                      href="/addiction-programs"
+                      href="/programs"
                       className="block px-4 py-2 text-[#198754] hover:bg-gray-100"
                     >
                       برامج الادمان

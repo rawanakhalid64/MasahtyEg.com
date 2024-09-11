@@ -1,4 +1,4 @@
-import { getPageBySlug } from "@/lib/wordpress";
+import { getDynamicSlug } from "@/lib/wordpress";
 import { Section, Container, Main } from "@/components/craft";
 import { Metadata } from "next";
 
@@ -9,22 +9,22 @@ export async function generateMetadata({
 }: {
   params: { slug: string };
 }): Promise<Metadata> {
-  const page = await getPageBySlug(params.slug);
+  const page = await getDynamicSlug(params.slug, 'program');
   return {
-    title: page.title.rendered,
-    description: page.excerpt.rendered,
+    title: page?.title?.rendered,
+    description: page?.excerpt?.rendered,
   };
 }
 
 export default async function Page({ params }: { params: { slug: string } }) {
-  const page = await getPageBySlug(params.slug);
+  const page = await getDynamicSlug(params.slug, 'program');
 
   return (
     <Section>
       <Container>
         <BackButton />
-        <h1 className="pt-12">{page.title.rendered}</h1>
-        <div dangerouslySetInnerHTML={{ __html: page.content.rendered }} />
+        <h1 className="pt-12">{page?.title?.rendered}</h1>
+        <div dangerouslySetInnerHTML={{ __html: page?.content?.rendered }} />
       </Container>
     </Section>
   );

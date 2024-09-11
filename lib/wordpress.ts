@@ -120,30 +120,104 @@ export async function getAllPages(): Promise<Page[]> {
   const pages: Page[] = await response.json();
   return pages;
 }
-export async function getAllPrograms(): Promise<Page[]> {
+interface Program {
+  // Define the properties of the Program type
+  featured_media: number;
+  // Other properties...
+}
+
+interface ProgramWithImage extends Program {
+  imageUrl: string;
+}
+
+export async function getAllPrograms(): Promise<ProgramWithImage[]> {
   const url = getUrl("/wp-json/wp/v2/program");
+  
+  // Fetch programs data
   const response = await fetch(url, { cache: "no-store" });
-  const pages: Page[] = await response.json();
-  return pages;
-  const programsWithImages = await Promise.all(
-    pages.map(async (program: any) => {
+  const programs: Program[] = await response.json();
+  
+  // Process the programs to include image URLs
+  const programsWithImages: ProgramWithImage[] = await Promise.all(
+    programs.map(async (program) => {
       if (program.featured_media) {
+        // Fetch media data for each program
         const mediaResponse = await fetch(
-          `https://admin.toggle-eg.com/wp-json/wp/v2/media/${program.featured_media}`,
+          `${baseUrl}/wp-json/wp/v2/media/${program.featured_media}`,
           { cache: "no-store" }
         );
         const mediaData = await mediaResponse.json();
         return {
           ...program,
           imageUrl: mediaData.source_url, // Use the image URL for display
-        };
+        } as ProgramWithImage;
       }
-      return program;
+      // If no featured media, return program without the imageUrl
+      return {
+        ...program,
+        imageUrl: "", // Fallback to empty string or placeholder image URL
+      } as ProgramWithImage;
     })
   );
 
+  // Return programs with image data
   return programsWithImages;
 }
+
+/**
+ * A program with its featured media image.
+ */
+interface Doctor {
+  id: number;
+  title: {
+    rendered: string;
+  };
+  acf: {
+    phoneNumber: string;
+    description: string;
+  };
+  featured_media: number;
+}
+
+interface MediaImage extends Doctor {
+  imageUrl: string;
+}
+
+
+export async function getAllDoctors(): Promise<MediaImage[]> {
+  const url = getUrl("/wp-json/wp/v2/doctor");
+
+  // Fetch doctors data
+  const response = await fetch(url, { cache: "no-store" });
+  const doctors: Doctor[] = await response.json();
+
+  // Process the doctors to include image URLs
+  const doctorsWithImages: MediaImage[] = await Promise.all(
+    doctors.map(async (doctor) => {
+      if (doctor.featured_media) {
+        // Fetch media data for each doctor
+        const mediaResponse = await fetch(
+          `${baseUrl}/wp-json/wp/v2/media/${doctor.featured_media}`,
+          { cache: "no-store" }
+        );
+        const mediaData = await mediaResponse.json();
+        return {
+          ...doctor,
+          imageUrl: mediaData.source_url, // Use the image URL for display
+        } as MediaImage;
+      }
+      // If no featured media, return doctor without the imageUrl
+      return {
+        ...doctor,
+        imageUrl: "", // Fallback to empty string or placeholder image URL
+      } as MediaImage;
+    })
+  );
+
+  // Return doctors with image data
+  return doctorsWithImages;
+}
+
 
 export async function getPageById(id: number): Promise<Page> {
   const url = getUrl(`/wp-json/wp/v2/pages/${id}`);
@@ -152,12 +226,36 @@ export async function getPageById(id: number): Promise<Page> {
   return page;
 }
 
-export async function getPageBySlug(slug: string): Promise<Page> {
-  const url = getUrl("/wp-json/wp/v2/pages", { slug });
-  const response = await fetch(url);
-  const page: Page[] = await response.json();
-  return page[0];
+export async function getDynamicSlug(slug: string, route: string): Promise<Page> {
+  const url = getUrl(`/wp-json/wp/v2/${route}`, { slug });
+  const response = await fetch(url, {cache: 'no-store'});
+  const page: any[] = await response.json();
+
+// DynamicWithMedia
+const DynamicWithMedia: any[] = await Promise.all(
+ page.map(async (payload) => {
+    if (payload.featured_media) {
+      // Fetch media data for each doctor
+      const mediaResponse = await fetch(
+        `${baseUrl}/wp-json/wp/v2/media/${payload.featured_media}`,
+        { cache: "no-store" }
+      );
+      const mediaData = await mediaResponse.json();
+      return {
+        ...payload,
+        imageUrl: mediaData.source_url, // Use the image URL for display
+      } as MediaImage;
+    }
+    // If no featured media, return doctor without the imageUrl
+    return {
+      ...payload,
+      imageUrl: "", // Fallback to empty string or placeholder image URL
+    } as MediaImage;
+  })
+);
+  return DynamicWithMedia[0];
 }
+
 
 export async function getAllAuthors(): Promise<Author[]> {
   const url = getUrl("/wp-json/wp/v2/users");
