@@ -1,4 +1,4 @@
-'use client';
+
 // Craft Imports
 import { Section, Container } from "@/components/craft";
 import Balancer from "react-wrap-balancer";
@@ -11,64 +11,42 @@ import { File, Pen, Tag, Boxes, User, Folder } from "lucide-react";
 import Services from "@/components/services/services";
 import Info from "@/components/info/info";
 import Image from "next/image";
-import { useRouter } from 'next/navigation';
+import { getAllDoctors, getAllPrograms } from "@/lib/wordpress";
 
 // This page is using the craft.tsx component and design system
 
 // This is just some example JS to demonstrate automatic styling from brijr/craft
-const ExampleJsx = () => {
-  const servicesData = [
-    {
-      image:
-        "https://res.cloudinary.com/dvgqyejfc/image/upload/v1725367791/psychoanalyst-giving-consultation-young-man-about-his-relationship-problems_qhcrjn.webp",
-      title: "برنامج الإقامة الكاملة",
-      link: "/posts/service-one",
-    },
-    {
-      image:
-        "https://res.cloudinary.com/dvgqyejfc/image/upload/v1725367784/young-person-suffering-from-anxiety_s8jmlv.webp",
-      title: "برنامج الإقامة الكاملة",
-      link: "/posts/service-one",
-    },
-    {
-      image:
-        "https://res.cloudinary.com/dvgqyejfc/image/upload/v1725367784/young-person-suffering-from-anxiety_s8jmlv.webp",
-      title: "برنامج الإقامة الكاملة",
-      link: "/posts/service-one",
-    },
-  ];
+const ExampleJsx = async () => {
 
   const infoData = [
     {
       image:
-        "https://res.cloudinary.com/dvgqyejfc/image/upload/v1725367791/psychoanalyst-giving-consultation-young-man-about-his-relationship-problems_qhcrjn.webp",
-      title: "9نصائح تحمي بها نفسك من الاعتداء الجنسي تحت تأثير المخدرة",
-      link: "/posts/service-one",
+        "https://res.cloudinary.com/dhyszr79r/image/upload/v1725395835/%D9%85%D8%B5%D8%AD%D8%AA%D9%8A_i1tqvy.webp",
+      title: "التنمر وأخطاره الصحية",
+      link: "/posts/bullying-and-its-health-risks",
       description:
-        "لا يتوقف العلاج لدينا بمجرد انتهاء البرنامج التأهيلي أو الخروج من المستشفى، بل المتابعة البعدية جزء أصيل من العلاج لدينا للحفاظ على متعافينا من عدم الانتكاس والوصول بهم إلى بر الأمان",
+        "لا تقطع صلتك بالسماء! علاج الروح والتدين علاج للإدمان.. ونعني بالروحانية العلاقة...",
     },
     {
       image:
-        "https://res.cloudinary.com/dvgqyejfc/image/upload/v1725367784/young-person-suffering-from-anxiety_s8jmlv.webp",
-      title: "  ما هي أقراص الكبتاجون؟",
-      link: "/posts/service-one",
+        "https://res.cloudinary.com/dhyszr79r/image/upload/v1725399367/%D9%82%D9%84%D9%82_wrxe6b.webp",
+      title: "طرق فعّالة للتغلب على القلق",
+      link: "/posts/effective-ways-to-overcome-anxiety",
       description:
-        "لا يتوقف العلاج لدينا بمجرد انتهاء البرنامج التأهيلي أو الخروج من المستشفى، بل المتابعة البعدية جزء أصيل من العلاج لدينا للحفاظ على متعافينا من عدم الانتكاس والوصول بهم إلى بر الأمان",
+        "المقدمة: القلق هو أحد أكثر الاضطرابات النفسية شيوعًا، ويعاني منه ملايين الأشخاص...",
     },
     {
       image:
-        "https://res.cloudinary.com/dvgqyejfc/image/upload/v1725367784/young-person-suffering-from-anxiety_s8jmlv.webp",
-      title: "إدمان المنشطات الرياضية",
-      link: "/posts/service-one",
+        "https://res.cloudinary.com/dhyszr79r/image/upload/v1725399870/%D8%A7%D9%84%D8%A5%D8%AF%D9%85%D8%A7%D9%86_svuuzf.webp",
+      title: "دور العلاج النفسي في مكافحة الإدمان",
+      link: "/posts/the-role-of-psychotherapy-in-combating-addiction",
       description:
-        "لا يتوقف العلاج لدينا بمجرد انتهاء البرنامج التأهيلي أو الخروج من المستشفى، بل المتابعة البعدية جزء أصيل من العلاج لدينا للحفاظ على متعافينا من عدم الانتكاس والوصول بهم إلى بر الأمان",
+        "المقدمة: الإدمان هو اضطراب معقد يتطلب علاجًا متعدد الأوجه. العلاج النفسي يلعب...",
     },
   ];
-  const router = useRouter();
+  const programs = await getAllPrograms();
+  const doctors = await getAllDoctors();
 
-  const handleContactClick = () => {
-    router.push('/contactus'); // Navigate to the Contact Us page
-  };
   return (
     <>
       <section className="hero h-[calc(100vh-72px)] bg-gray-50 xl:pb-0 overflow-hidden">
@@ -111,12 +89,8 @@ const ExampleJsx = () => {
                 شامل لتحسين حياة الأفراد المتأثرين بالمشاكل النفسية والسلوكية
                 والإدمان، من خلال تقديم خطط علاجية وبرامج إعادة تأهيل فعّالة.
               </p>
-              <button
-      className="btn btn-lg rounded-full my-4 px-3 py-1 text-white bg-[#198754] !mx-auto xl:!mx-0"
-      onClick={handleContactClick}
-    >
-      اتصل بنا
-    </button>
+              <Link className="btn btn-lg rounded-full inline-block !my-4 px-3 py-1 !no-underline font-semibold !text-white bg-[#198754] !mx-auto xl:!mx-0"
+               href={'/contactus'}>اتصل بنا</Link>
             </div>
 
             {/* image */}
@@ -133,117 +107,78 @@ const ExampleJsx = () => {
       </section>
 
       <section className="bg-gray-50 py-12 xl:pt-12 xl:pb-0 overflow-hidden">
-        <Services servicesData={servicesData} />
+        <Services servicesData={programs.slice(0,3)} desc={false} />
+        <div className="flex items-center justify-center">
+        <Link className="btn btn-lg rounded-full inline-block !my-4 px-3 py-1 !no-underline font-semibold !text-white bg-[#198754] !mx-auto xl:!mx-0"
+               href={'/programs'}> البرامج العلاجية </Link>
+        </div>
       </section>
 
-      <section className="bg-gray-50 py-12 xl:pt-12 xl:pb-0 overflow-hidden">
+      <section className="container bg-gray-50 mx-auto pb-4">
+        {/* Section Title */}
+        <div className="w-full flex flex-col items-center justify-center">
+          <h2 className="border-b-2 py-3 border-[#198754]">
+            الأطباء والأخصائيين النفسيين | دار الإستشارات النفسية
+          </h2>
+        </div>
+
+        {/* Grid of Doctors */}
+        <div className="grid md:grid-cols-3 gap-6 mt-6 not-prose">
+          {doctors.map((doctor: any) => (
+            <Link
+              key={doctor.id}
+              className="group border bg-white rounded-lg flex flex-col justify-between hover:shadow-lg transition-all transform hover:scale-[1.02] overflow-hidden"
+              href={`doctors/${doctor.slug}`}
+            >
+              <div
+                key={doctor.id}
+                className="group border bg-white rounded-lg flex flex-col justify-between hover:shadow-lg transition-all transform hover:scale-[1.02] overflow-hidden"
+              >
+                {/* Doctor's Image */}
+                <Image
+                  src={doctor.imageUrl}
+                  alt={doctor.name}
+                  width={300}
+                  height={300}
+                  className="rounded-t-lg object-cover h-auto w-full group-hover:opacity-90 transition-opacity duration-300"
+                />
+
+                {/* Doctor's Information */}
+                <div className="p-4">
+                  {/* Name and Title */}
+                  <span className="block text-lg font-semibold text-gray-800 group-hover:text-[#198754] transition-colors duration-300">
+                    {doctor.name}
+                  </span>
+                  <span className="block text-md text-gray-500 mb-2">
+                    {doctor.title.rendered}
+                  </span>
+
+                  {/* Phone Number */}
+                  <p className="text-gray-600 mb-2">
+                    <strong>رقم الهاتف:</strong> {doctor.acf.phone}
+                  </p>
+
+                  {/* Description */}
+                  <p className="text-gray-600">{doctor.acf.description}</p>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+        <div className="flex items-center justify-center">
+        <Link className="btn btn-lg rounded-full inline-block !my-4 px-3 py-1 !no-underline font-semibold !text-white bg-[#198754] !mx-auto xl:!mx-0"
+               href={'/doctors'}>  كل الدكاترة </Link>
+        </div>
+      </section>
+
+      <section className="bg-gray-50 py-12 xl:pt-0 xl:pb-4 overflow-hidden">
         <Info infoData={infoData} />
+        <div className="flex items-center justify-center">
+        <Link className="btn btn-lg rounded-full inline-block !my-4 px-3 py-1 !no-underline font-semibold !text-white bg-[#198754] !mx-auto xl:!mx-0"
+               href={'/posts'}>  عالم التعافي </Link>
+        </div>
       </section>
     </>
-    // <article className="prose-m-none">
-    //   <h1>
-    //     <Balancer>
-    //       Hello hdhdhfh, welcome to the Next.js and WordPress Starter by{" "}
-    //       <a href="https://9d8.dev">9d8</a>.
-    //     </Balancer>
-    //   </h1>
-    //   {/* Vercel Clone Starter */}
-    //   <a
-    //     className="h-16 block"
-    //     href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2F9d8dev%2Fnext-wp&env=WORDPRESS_URL,WORDPRESS_HOSTNAME&envDescription=Add%20WordPress%20URL%20with%20Rest%20API%20enabled%20(ie.%20https%3A%2F%2Fwp.example.com)%20abd%20the%20hostname%20for%20Image%20rendering%20in%20Next%20JS%20(ie.%20wp.example.com)&project-name=next-wp&repository-name=next-wp&demo-title=Next%20JS%20and%20WordPress%20Starter&demo-url=https%3A%2F%2Fwp.9d8.dev"
-    //   >
-    //     {/* eslint-disable-next-line */}
-    //     <img
-    //       className="not-prose my-4"
-    //       src="https://vercel.com/button"
-    //       alt="Deploy with Vercel"
-    //     />
-    //   </a>
-    //   <p>
-    //     This is <a href="https://github.com/9d8dev/next-wp">next-wp</a>, created
-    //     as a way to build WordPress sites with Next.js at rapid speed. This
-    //     starter is designed with <a href="https://ui.shadcn.com">shadcn/ui</a>,{" "}
-    //     <a href="https://github.com/brijr/craft">brijr/craft</a>, and Tailwind
-    //     CSS. Use <a href="https://components.bridger.to">brijr/components</a> to
-    //     build your site with prebuilt components. The data fetching and
-    //     typesafety is handled in <code>lib/WordPress.ts</code> and{" "}
-    //     <code>lib/WordPress.d.ts</code>. Questions? Email 9d8dev@gmail.com
-    //   </p>
-    //   <div className="grid md:grid-cols-3 gap-4 mt-6 not-prose">
-    //     <Link
-    //       className="border h-48 bg-accent/50 rounded-lg p-4 flex flex-col justify-between hover:scale-[1.02] transition-all"
-    //       href="/posts"
-    //     >
-    //       <Pen size={32} />
-    //       <span>
-    //         Posts{" "}
-    //         <span className="block text-sm text-muted-foreground">
-    //           All posts from your WordPress
-    //         </span>
-    //       </span>
-    //     </Link>
-    //     <Link
-    //       className="border h-48 bg-accent/50 rounded-lg p-4 flex flex-col justify-between hover:scale-[1.02] transition-all"
-    //       href="/pages"
-    //     >
-    //       <File size={32} />
-    //       <span>
-    //         Pages{" "}
-    //         <span className="block text-sm text-muted-foreground">
-    //           Custom pages from your WordPress
-    //         </span>
-    //       </span>
-    //     </Link>
-    //     <Link
-    //       className="border h-48 bg-accent/50 rounded-lg p-4 flex flex-col justify-between hover:scale-[1.02] transition-all"
-    //       href="/posts/authors"
-    //     >
-    //       <User size={32} />
-    //       <span>
-    //         Authors{" "}
-    //         <span className="block text-sm text-muted-foreground">
-    //           List of the authors from your WordPress
-    //         </span>
-    //       </span>
-    //     </Link>
-    //     <Link
-    //       className="border h-48 bg-accent/50 rounded-lg p-4 flex flex-col justify-between hover:scale-[1.02] transition-all"
-    //       href="/posts/tags"
-    //     >
-    //       <Tag size={32} />
-    //       <span>
-    //         Tags{" "}
-    //         <span className="block text-sm text-muted-foreground">
-    //           Content by tags from your WordPress
-    //         </span>
-    //       </span>
-    //     </Link>
-    //     <Link
-    //       className="border h-48 bg-accent/50 rounded-lg p-4 flex flex-col justify-between hover:scale-[1.02] transition-all"
-    //       href="/posts/categories"
-    //     >
-    //       <Boxes size={32} />
-    //       <span>
-    //         Categories{" "}
-    //         <span className="block text-sm text-muted-foreground">
-    //           Categories from your WordPress
-    //         </span>
-    //       </span>
-    //     </Link>
-    //     <a
-    //       className="border h-48 bg-accent/50 rounded-lg p-4 flex flex-col justify-between hover:scale-[1.02] transition-all"
-    //       href="https://github.com/9d8dev/next-wp"
-    //     >
-    //       <Folder size={32} />
-    //       <span>
-    //         Documentation{" "}
-    //         <span className="block text-sm text-muted-foreground">
-    //           How to use `next-wp`
-    //         </span>
-    //       </span>
-    //     </a>
-    //   </div>
-    // </article>
   );
 };
 export default ExampleJsx

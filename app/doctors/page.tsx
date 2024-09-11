@@ -32,7 +32,7 @@ const page = async () => {
                   alt={doctor.name}
                   width={300}
                   height={300}
-                  className="rounded-t-lg object-cover h-48 w-full group-hover:opacity-90 transition-opacity duration-300"
+                  className="rounded-t-lg object-cover h-auto w-full group-hover:opacity-90 transition-opacity duration-300"
                 />
 
                 {/* Doctor's Information */}
