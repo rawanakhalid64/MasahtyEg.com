@@ -113,12 +113,12 @@ const page = () => {
             </ul>
           </div>
           <div>
-            <div className="flex justify-center gap-9">
+            <div className="flex  justify-center gap-9">
               {/* First Video */}
-              <LazyYouTube videoId="T3mgD-mJZVI" width="100%" height="350px" />
+              <LazyYouTube videoId="T3mgD-mJZVI"   />
 
               {/* Second Video */}
-              <LazyYouTube videoId="T3mgD-mJZVI" width="100%" height="350px" />
+              <LazyYouTube videoId="T3mgD-mJZVI"   />
             </div>
           </div>
         </div>

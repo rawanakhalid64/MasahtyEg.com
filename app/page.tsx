@@ -1,3 +1,4 @@
+'use client';
 // Craft Imports
 import { Section, Container } from "@/components/craft";
 import Balancer from "react-wrap-balancer";
@@ -10,12 +11,9 @@ import { File, Pen, Tag, Boxes, User, Folder } from "lucide-react";
 import Services from "@/components/services/services";
 import Info from "@/components/info/info";
 import Image from "next/image";
-// import { Image } from 'next/image';
+import { useRouter } from 'next/navigation';
 
 // This page is using the craft.tsx component and design system
-export default function Home() {
-  return <ExampleJsx />;
-}
 
 // This is just some example JS to demonstrate automatic styling from brijr/craft
 const ExampleJsx = () => {
@@ -66,7 +64,11 @@ const ExampleJsx = () => {
         "لا يتوقف العلاج لدينا بمجرد انتهاء البرنامج التأهيلي أو الخروج من المستشفى، بل المتابعة البعدية جزء أصيل من العلاج لدينا للحفاظ على متعافينا من عدم الانتكاس والوصول بهم إلى بر الأمان",
     },
   ];
+  const router = useRouter();
 
+  const handleContactClick = () => {
+    router.push('/contactus'); // Navigate to the Contact Us page
+  };
   return (
     <>
       <section className="hero h-[calc(100vh-72px)] bg-gray-50 xl:pb-0 overflow-hidden">
@@ -80,7 +82,7 @@ const ExampleJsx = () => {
         "
               >
                 <div className="uppercase text-base font-medium text-[#627577] ">
-                  عيش حياة سعيدة معنا{" "}
+                  تعافٍ آمن، حياة أفضل{" "}
                 </div>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -100,14 +102,21 @@ const ExampleJsx = () => {
               <h1 className="h1 mb-6 !leading-[63px]">
                 مصحتي للطب النفسي وعلاج الإدمان
               </h1>
+              <h3 className="h3 mb-6 !leading-[33px] text-[#198754]">
+                {" "}
+                شريكك الفعّال في رحلة التعافي…
+              </h3>
               <p className="mb-[42-px] md:max-w-xl">
-                مصحتي هي شريك كل فرد في رحلته للتعافي ، مؤسسة متخصصة في الطب
-                النفسي وعلاج الإدمان ,نقدم مجموعة شاملة ومتخصصة من خدمات علاج
-                الإدمان وبرامج إعادة التأهيل النفسي
+                مصحتي، مؤسسة متخصصة في الطب النفسي وعلاج الإدمان، تعتمد على منهج
+                شامل لتحسين حياة الأفراد المتأثرين بالمشاكل النفسية والسلوكية
+                والإدمان، من خلال تقديم خطط علاجية وبرامج إعادة تأهيل فعّالة.
               </p>
-              <button className="btn btn-lg rounded-full my-4 px-3 py-1 text-white bg-[#198754] !mx-auto xl:!mx-0">
-                اتصل بنا
-              </button>
+              <button
+      className="btn btn-lg rounded-full my-4 px-3 py-1 text-white bg-[#198754] !mx-auto xl:!mx-0"
+      onClick={handleContactClick}
+    >
+      اتصل بنا
+    </button>
             </div>
 
             {/* image */}
@@ -122,9 +131,6 @@ const ExampleJsx = () => {
           </div>
         </div>
       </section>
-     
-
-
 
       <section className="bg-gray-50 py-12 xl:pt-12 xl:pb-0 overflow-hidden">
         <Services servicesData={servicesData} />
@@ -240,3 +246,4 @@ const ExampleJsx = () => {
     // </article>
   );
 };
+export default ExampleJsx

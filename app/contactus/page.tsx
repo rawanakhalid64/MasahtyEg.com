@@ -1,8 +1,9 @@
-// components/ContactForm.tsx
+import Image from 'next/image';
 const ContactForm = () => {
   return (
-    <div className="container mx-auto px-4">
-      <div className="flex justify-center">
+    <div className="container mx-auto px-4 gap-8">
+      <div className="flex lg:mr-[200px] ">
+      
         <div className="w-full lg:w-5/12 md:w-7/12">
           <div className="form-area bg-white p-6 shadow-lg rounded-lg">
             {/* Contact Info */}
@@ -11,6 +12,8 @@ const ContactForm = () => {
                 <h2 className="heading inline-block border-b-4 pb-1 border-[#198754] pr-2 text-2xl font-bold">
                   تواصل معنا
                 </h2>
+                <h5>اتصل بنا بثقة وخصوصية تامة، نحن هنا لدعمك بسرية كاملة في كل خطوة على طريق التعافي. دعنا نكون شريكك في رحلة استعادة التوازن بأمان وسرية.
+                </h5>
               </div>
 
               <ul className="mt-4 space-y-2">
@@ -49,7 +52,7 @@ const ContactForm = () => {
                     <input
                       type="email"
                       id="Email"
-                      className="form-control mt-1 block w-full  pr-4 py-2 border rounded-3xl bg-slate-100 border-gray-300  focus:ring-green-500 focus:border-green-500"
+                      className="form-control mt-1 block w-full pr-4 py-2 border rounded-3xl bg-slate-100 border-gray-300  focus:ring-green-500 focus:border-green-500"
                     />
                   </div>
 
@@ -81,6 +84,16 @@ const ContactForm = () => {
             </div>
           </div>
         </div>
+        <div className="hidden lg:block lg:w-5/12 md:w-5/12">
+        <Image
+            src="https://res.cloudinary.com/dvgqyejfc/image/upload/v1725806694/depositphotos_3264465-stock-photo-telephone_zxb2is.webp"
+            alt="Contact Us Image"
+            width={600} // Specify a width
+            height={500} // Specify a height
+            className="rounded-lg mt-4 "
+            layout="responsive" // Optionally make it responsive
+          />
+    </div>
       </div>
     </div>
   );

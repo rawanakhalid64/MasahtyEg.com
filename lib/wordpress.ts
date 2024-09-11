@@ -19,6 +19,7 @@ const baseUrl = process.env.WORDPRESS_URL;
 
 function getUrl(path: string, query?: Record<string, any>) {
     const params = query ? querystring.stringify(query) : null
+    
   
     return `${baseUrl}${path}${params ? `?${params}` : ""}`
 }
@@ -115,9 +116,33 @@ export async function getTagBySlug(slug: string): Promise<Tag> {
 
 export async function getAllPages(): Promise<Page[]> {
   const url = getUrl("/wp-json/wp/v2/pages");
-  const response = await fetch(url);
+  const response = await fetch(url, { cache: "no-store" });
   const pages: Page[] = await response.json();
   return pages;
+}
+export async function getAllPrograms(): Promise<Page[]> {
+  const url = getUrl("/wp-json/wp/v2/program");
+  const response = await fetch(url, { cache: "no-store" });
+  const pages: Page[] = await response.json();
+  return pages;
+  const programsWithImages = await Promise.all(
+    pages.map(async (program: any) => {
+      if (program.featured_media) {
+        const mediaResponse = await fetch(
+          `https://admin.toggle-eg.com/wp-json/wp/v2/media/${program.featured_media}`,
+          { cache: "no-store" }
+        );
+        const mediaData = await mediaResponse.json();
+        return {
+          ...program,
+          imageUrl: mediaData.source_url, // Use the image URL for display
+        };
+      }
+      return program;
+    })
+  );
+
+  return programsWithImages;
 }
 
 export async function getPageById(id: number): Promise<Page> {
