@@ -107,11 +107,11 @@ const ContactForm = () => {
 
 
   return (
-    <div className="container mx-auto px-4 gap-8">
-      <div className="flex lg:mr-[200px] ">
+    <div className="mx-auto px-4 gap-8">
+      <div className="flex flex-col lg:flex-row items-center justify-center lg:max-w-7xl max-w-5xl">
 
-        <div className="w-full lg:w-5/12 md:w-7/12">
-          <div className="form-area bg-white p-6 shadow-lg rounded-lg">
+        <div className="w-full lg:w-1/2 md:w-7/12">
+          <div className="form-area bg-white p-6 rounded-lg">
             {/* Contact Info */}
             <div className="form-top mb-3">
               <div className="common-title">
@@ -199,7 +199,7 @@ const ContactForm = () => {
             </div>
           </div>
         </div>
-        <div className="lg:w-5/12 md:w-5/12 gap-8">
+        <div className="w-full lg:w-1/2 md:w-7/12 gap-8">
           <Image
             src="https://res.cloudinary.com/dvgqyejfc/image/upload/v1725806694/depositphotos_3264465-stock-photo-telephone_zxb2is.webp"
             alt="Contact Us Image"
