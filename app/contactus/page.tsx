@@ -1,7 +1,7 @@
 'use client'
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-
+import MapComponent from "@/components/googleMaps/GoogleMap"
 const INPUT = 'INPUT'
 const TEXTAREA = 'TEXTAREA'
 
@@ -199,15 +199,16 @@ const ContactForm = () => {
             </div>
           </div>
         </div>
-        <div className="hidden lg:block lg:w-5/12 md:w-5/12">
+        <div className="lg:w-5/12 md:w-5/12 gap-8">
           <Image
             src="https://res.cloudinary.com/dvgqyejfc/image/upload/v1725806694/depositphotos_3264465-stock-photo-telephone_zxb2is.webp"
             alt="Contact Us Image"
             width={600} // Specify a width
             height={500} // Specify a height
-            className="rounded-lg mt-4 "
+            className="rounded-lg mt-4 hidden lg:block "
             layout="responsive" // Optionally make it responsive
           />
+             <MapComponent />
         </div>
       </div>
     </div>
