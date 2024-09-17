@@ -107,7 +107,7 @@ const ContactForm = () => {
 
 
   return (
-    <div className="mx-auto px-4 gap-8">
+    <div className="mx-auto px-4 gap-8 flex justify-center">
       <div className="flex flex-col lg:flex-row items-center justify-center lg:max-w-7xl max-w-5xl">
 
         <div className="w-full lg:w-1/2 md:w-7/12">
