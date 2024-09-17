@@ -2,7 +2,7 @@
 // Craft Imports
 import { Section, Container } from "@/components/craft";
 import Balancer from "react-wrap-balancer";
-
+import BookConsultationForm from "../app/BookConsultation/page"
 // Components
 import Link from "next/link";
 
@@ -89,7 +89,7 @@ const ExampleJsx = async () => {
                 شامل لتحسين حياة الأفراد المتأثرين بالمشاكل النفسية والسلوكية
                 والإدمان، من خلال تقديم خطط علاجية وبرامج إعادة تأهيل فعّالة.
               </p>
-              <Link className="btn btn-lg rounded-full inline-block !my-4 px-3 py-1 !no-underline font-semibold !text-white bg-[#198754] !mx-auto xl:!mx-0"
+              <Link className="btn btn-lg rounded-full inline-block !my-4 px-3 py-1 !no-underline font-semibold !text-white bg-[#198754] !mx-auto xl:!mx-0  hover:bg-green-600 transition-colors duration-300"
                href={'/contactus'}>اتصل بنا</Link>
             </div>
 
@@ -109,7 +109,7 @@ const ExampleJsx = async () => {
       <section className="bg-gray-50 py-12 xl:pt-12 xl:pb-0 overflow-hidden">
         <Services servicesData={programs.slice(0,3)} desc={false} />
         <div className="flex items-center justify-center">
-        <Link className="btn btn-lg rounded-full inline-block !my-4 px-3 py-1 !no-underline font-semibold !text-white bg-[#198754] !mx-auto xl:!mx-0"
+        <Link className="btn btn-lg rounded-full inline-block !my-4 px-3 py-1 !no-underline font-semibold !text-white bg-[#198754] !mx-auto xl:!mx-0  hover:bg-green-600 transition-colors duration-300"
                href={'/programs'}> البرامج العلاجية </Link>
         </div>
       </section>
@@ -166,7 +166,7 @@ const ExampleJsx = async () => {
           ))}
         </div>
         <div className="flex items-center justify-center">
-        <Link className="btn btn-lg rounded-full inline-block !my-4 px-3 py-1 !no-underline font-semibold !text-white bg-[#198754] !mx-auto xl:!mx-0"
+        <Link className="btn btn-lg rounded-full inline-block !my-4 px-3 py-1 !no-underline font-semibold !text-white bg-[#198754] !mx-auto xl:!mx-0  hover:bg-green-600 transition-colors duration-300"
                href={'/doctors'}>  كل الدكاترة </Link>
         </div>
       </section>
@@ -174,9 +174,41 @@ const ExampleJsx = async () => {
       <section className="bg-gray-50 py-12 xl:pt-0 xl:pb-4 overflow-hidden">
         <Info infoData={infoData} />
         <div className="flex items-center justify-center">
-        <Link className="btn btn-lg rounded-full inline-block !my-4 px-3 py-1 !no-underline font-semibold !text-white bg-[#198754] !mx-auto xl:!mx-0"
+        <Link className="btn btn-lg rounded-full inline-block !my-4 px-3 py-1 !no-underline font-semibold !text-white bg-[#198754] !mx-auto xl:!mx-0  hover:bg-green-600 transition-colors duration-300"
                href={'/posts'}>  عالم التعافي </Link>
         </div>
+      </section>
+
+      {/* احجز استشارة */}
+
+      <section className="bg-gray-50 py-12 xl:pt-0 xl:pb-4 overflow-hidden">
+      <div className="w-full flex flex-col items-center justify-center">
+      <h2 className="border-b-2 py-3 border-[#198754]">
+          احجز استشارة
+
+      </h2>
+      </div>
+      <div className="flex items-center justify-center gap-4 w-full">
+     
+
+      {/* Maximized clickable link */}
+      <Link
+        href="/BookConsultation"
+        className="btn btn-lg rounded-full inline-block text-center !my-4 px-3 py-2 !no-underline font-semibold !text-white bg-[#198754] !mx-auto xl:!mx-0  hover:bg-green-600 transition-colors duration-300"
+      >
+        احجز استشارتك
+      </Link>
+      
+      <div className="w-[300px] h-[300px] relative">
+        <Image
+          src="https://res.cloudinary.com/dvgqyejfc/image/upload/v1726574143/19913525_6164418_qggq7z.webp"
+          alt="Consultation Image"
+          layout="fill" // Makes the image fill the container
+          objectFit="cover" // Ensures the image maintains its aspect ratio
+          className="rounded-full" // Makes the image circular if needed
+        />
+      </div>
+    </div>
       </section>
     </>
   );
