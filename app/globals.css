@@ -136,3 +136,27 @@
     opacity: 1;
   }
 }
+/* Style the dropdown options */
+.custom-dropdown option {
+  background-color: white;
+}
+
+/* Change the hover color of the dropdown options */
+.custom-dropdown option:hover {
+  background-color: #198754; /* Green hover color */
+  color: white; /* Optional: Change text color to white */
+}
+
+/* Remove the default appearance of select to allow custom styling */
+.custom-dropdown {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: 1px solid #198754; /* Green border */
+}
+
+/* Adjust the focus state to match the dropdown */
+.custom-dropdown:focus {
+  border-color: #198754; /* Green border on focus */
+  box-shadow: 0 0 0 2px rgba(25, 135, 84, 0.5); /* Green focus outline */
+}
