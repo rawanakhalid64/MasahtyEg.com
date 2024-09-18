@@ -111,7 +111,7 @@ const ContactForm = () => {
       <div className="flex flex-col lg:flex-row items-center justify-center lg:max-w-7xl max-w-5xl">
 
         <div className="w-full lg:w-1/2 md:w-7/12">
-          <div className="form-area bg-white p-6 rounded-lg">
+          <div className="form-area dark:bg-black p-6 rounded-lg">
             {/* Contact Info */}
             <div className="form-top mb-3">
               <div className="common-title">
@@ -147,15 +147,7 @@ const ContactForm = () => {
               </div>
               <div className="form mt-4">
                 <form onSubmit={handleSubmit}>
-                  <select
-                    name="your-program"
-                    id="program"
-                    className="form-control mt-1 block w-full px-4 py-2 border rounded-3xl bg-slate-100 border-gray-300 focus:ring-green-500 focus:border-green-500"
-                  >
-                    <option value="برنامج الساعة">برنامج الساعة</option>
-                    <option value="برنامج الفرحة">برنامج الفرحة</option>
-                    <option value="برنامج الحصة">برنامج الحصة</option>
-                  </select>
+                  
                   {fields.map((field: any) => (
                     <div key={field.id} className="form-group mb-4">
                       <label
@@ -168,13 +160,13 @@ const ContactForm = () => {
                         type={field.type}
                         name={field.name}
                         id={field.id}
-                        className="form-control mt-1 block w-full pr-4 py-2 border rounded-3xl bg-slate-100 border-gray-300  focus:ring-green-500 focus:border-green-500"
+                        className=" !text-black form-control mt-1 block w-full pr-4 py-2 border rounded-3xl bg-slate-100 border-gray-300  focus:ring-green-500 focus:border-green-500"
                       />}
                       {field.component === TEXTAREA && <textarea
                         name={field.name}
                         id={field.id}
                         rows={4}
-                        className="form-control mt-1 block w-full px-4 py-2 rounded-3xl bg-slate-100 border border-gray-300  focus:ring-green-500 focus:border-green-500"
+                        className="!text-black form-control mt-1 block w-full px-4 py-2 rounded-3xl bg-slate-100 border border-gray-300  focus:ring-green-500 focus:border-green-500"
                       ></textarea>}
                       {field.validation_error && <div className='text-base text-red-600'>
                         {field.validation_message}

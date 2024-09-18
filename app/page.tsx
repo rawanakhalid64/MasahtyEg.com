@@ -49,7 +49,7 @@ const ExampleJsx = async () => {
 
   return (
     <>
-      <section className="hero h-[calc(100vh-72px)] bg-gray-50 xl:pb-0 overflow-hidden">
+      <section className="hero h-[calc(100vh-72px)] bg-gray-50 xl:pb-0 overflow-hidden dark:bg-black">
         <div className="container mx-auto h-full">
           <div className="flex flex-col xl:flex-row items-center justify-between h-full ">
             {/* text */}
@@ -77,7 +77,7 @@ const ExampleJsx = async () => {
                   />
                 </svg>
               </div>
-              <h1 className="h1 mb-6 !leading-[63px]">
+              <h1 className="h1 mb-6 !leading-[63px] ">
                 مصحتي للطب النفسي وعلاج الإدمان
               </h1>
               <h3 className="h3 mb-6 !leading-[33px] text-[#198754]">
@@ -106,7 +106,7 @@ const ExampleJsx = async () => {
         </div>
       </section>
 
-      <section className="bg-gray-50 py-12 xl:pt-12 xl:pb-0 overflow-hidden">
+      <section className="bg-gray-50 py-12 xl:pt-12 xl:pb-0 overflow-hidden dark:bg-black">
         <Services servicesData={programs.slice(0,3)} desc={false} />
         <div className="flex items-center justify-center">
         <Link className="btn btn-lg rounded-full inline-block !my-4 px-3 py-1 !no-underline font-semibold !text-white bg-[#198754] !mx-auto xl:!mx-0  hover:bg-green-600 transition-colors duration-300"
@@ -114,7 +114,7 @@ const ExampleJsx = async () => {
         </div>
       </section>
 
-      <section className="container bg-gray-50 mx-auto pb-4">
+      <section className="container bg-gray-50 mx-auto pb-4 dark:bg-black">
         {/* Section Title */}
         <div className="w-full flex flex-col items-center justify-center">
           <h2 className="border-b-2 py-3 border-[#198754]">
@@ -144,22 +144,22 @@ const ExampleJsx = async () => {
                 />
 
                 {/* Doctor's Information */}
-                <div className="p-4">
+                <div className="p-4 dark:bg-black">
                   {/* Name and Title */}
-                  <span className="block text-lg font-semibold text-gray-800 group-hover:text-[#198754] transition-colors duration-300">
+                  <span className="block text-lg font-semibold  !text-[#198754] group-hover:text-[#198754] transition-colors duration-300">
                     {doctor.name}
                   </span>
-                  <span className="block text-md text-gray-500 mb-2">
+                  <span className="block text-md text-gray-500 dark:!text-[#198754] mb-2">
                     {doctor.title.rendered}
                   </span>
 
                   {/* Phone Number */}
-                  <p className="text-gray-600 mb-2">
-                    <strong>رقم الهاتف:</strong> {doctor.acf.phone}
+                  <p className="text-gray-600 dark:text-white mb-2">
+                    <strong className="!text-[#198754]">رقم الهاتف:</strong> {doctor.acf.phone}
                   </p>
 
                   {/* Description */}
-                  <p className="text-gray-600">{doctor.acf.description}</p>
+                  <p className="text-gray-600 dark:text-white">{doctor.acf.description}</p>
                 </div>
               </div>
             </Link>
@@ -171,7 +171,7 @@ const ExampleJsx = async () => {
         </div>
       </section>
 
-      <section className="bg-gray-50 py-12 xl:pt-0 xl:pb-4 overflow-hidden">
+      <section className="bg-gray-50 py-12 xl:pt-0 xl:pb-4 overflow-hidden dark:bg-black">
         <Info infoData={infoData} />
         <div className="flex items-center justify-center">
         <Link className="btn btn-lg rounded-full inline-block !my-4 px-3 py-1 !no-underline font-semibold !text-white bg-[#198754] !mx-auto xl:!mx-0  hover:bg-green-600 transition-colors duration-300"
@@ -181,7 +181,7 @@ const ExampleJsx = async () => {
 
       {/* احجز استشارة */}
 
-      <section className="bg-gray-50 py-12 xl:pt-0 xl:pb-4 overflow-hidden">
+      <section className="bg-gray-50 py-12 xl:pt-0 xl:pb-4 overflow-hidden dark:bg-black">
       <div className="w-full flex flex-col items-center justify-center">
       <h2 className="border-b-2 py-3 border-[#198754]">
           احجز استشارة

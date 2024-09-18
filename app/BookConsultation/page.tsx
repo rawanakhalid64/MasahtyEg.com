@@ -67,14 +67,14 @@ const BookConsultationForm = ({ title = "احجز استشارة", description =
     })));
 
     const formData = new FormData(event.target);
-    formData.append('_wpcf7_unit_tag', 'a4d4456');
+    formData.append('_wpcf7_unit_tag', 'ef783e4');
 
     const reqOptions = {
       method: 'POST',
       body: formData,
     };
 
-    const req = await fetch(`https://admin.toggle-eg.com/wp-json/contact-form-7/v1/contact-forms/66/feedback`, reqOptions);
+    const req = await fetch(`https://admin.toggle-eg.com/wp-json/contact-form-7/v1/contact-forms/135/feedback`, reqOptions);
     const res: any = await req.json();
 
     if (!res) return alert('An unexpected error occurred');
@@ -106,11 +106,11 @@ const BookConsultationForm = ({ title = "احجز استشارة", description =
   }, [message]);
 
   return (
-    <div className="mx-auto px-4 gap-8 flex justify-center">
+    <div className="mx-auto px-4 gap-8 flex justify-center dark:bg-black">
       <div className="flex flex-col lg:flex-row items-center justify-center lg:max-w-7xl max-w-5xl">
 
         <div className="w-full lg:w-1/2 md:w-7/12">
-          <div className="form-area bg-white p-6 rounded-lg">
+          <div className="form-area  dark:bg-black p-6 rounded-lg">
             {/* Booking Info */}
             <div className="form-top mb-3">
               <div className="common-title">
@@ -145,11 +145,20 @@ const BookConsultationForm = ({ title = "احجز استشارة", description =
               </div>
               <div className="form mt-4">
                 <form onSubmit={handleSubmit}>
+                <select
+                    name="your-program"
+                    id="program"
+                    className="dark:!text-black form-control mt-1 block w-full px-4 py-2 border rounded-3xl bg-slate-100 border-gray-300 focus:ring-green-500 focus:border-green-500"
+                  >
+                    <option value="برنامج الساعة">برنامج الساعة</option>
+                    <option value="برنامج الفرحة">برنامج الفرحة</option>
+                    <option value="برنامج الحصة">برنامج الحصة</option>
+                  </select>
                   {fields.map((field: any) => (
                     <div key={field.id} className="form-group mb-4">
                       <label
                         htmlFor={field.id}
-                        className="block font-bold text-[#198754]"
+                        className=" block font-bold text-[#198754]"
                       >
                         {field.label}
                       </label>
@@ -157,13 +166,13 @@ const BookConsultationForm = ({ title = "احجز استشارة", description =
                         type={field.type}
                         name={field.name}
                         id={field.id}
-                        className="form-control mt-1 block w-full pr-4 py-2 border rounded-3xl bg-slate-100 border-gray-300 focus:ring-green-500 focus:border-green-500"
+                        className=" dark:!text-black form-control mt-1 block w-full pr-4 py-2 border rounded-3xl bg-slate-100 border-gray-300 focus:ring-green-500 focus:border-green-500"
                       />}
                       {field.component === TEXTAREA && <textarea
                         name={field.name}
                         id={field.id}
                         rows={4}
-                        className="form-control mt-1 block w-full px-4 py-2 rounded-3xl bg-slate-100 border border-gray-300 focus:ring-green-500 focus:border-green-500"
+                        className="dark:!text-black form-control mt-1 block w-full px-4 py-2 rounded-3xl bg-slate-100 border border-gray-300 focus:ring-green-500 focus:border-green-500"
                       ></textarea>}
                       {field.validation_error && <div className='text-base text-red-600'>
                         {field.validation_message}
@@ -183,7 +192,7 @@ const BookConsultationForm = ({ title = "احجز استشارة", description =
                       {message}
                     </div>
                   )}
-                </form>
+                </form> 
               </div>
             </div>
           </div>

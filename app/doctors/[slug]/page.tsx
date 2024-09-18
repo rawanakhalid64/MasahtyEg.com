@@ -65,10 +65,10 @@ export default async function PageComponent({ params, searchParams }: { params: 
 
   return (
     <>
-      <div className="flex flex-col lg:max-w-7xl max-w-5xl mx-auto px-4 md:px-0 justify-between">
+      <div className="flex flex-col lg:max-w-7xl max-w-5xl mx-auto px-4 md:px-0 justify-between dark:bg-black">
 
         {/* Mobile Dropdown for Tabs */}
-        <div className="block md:hidden w-full mt-4 mb-6">
+        <div className="block md:hidden w-full mt-4 mb-6 dark:bg-black">
           <MobileDropdown activeTab={activeTab} tabs={TABS} />
         </div>
 
@@ -85,13 +85,13 @@ export default async function PageComponent({ params, searchParams }: { params: 
           )}
 
           {/* Description under the image */}
-          <p className="mt-4 text-gray-700 text-center">
+          <p className="mt-4 text-gray-700 text-center dark:text-white">
             {page.acf?.description || 'No description available.'}
           </p>
         </div>
 
         {/* Desktop Sidebar and Image Section */}
-        <div className="hidden md:flex w-full md:flex-row lg:max-w-7xl max-w-5xl mx-auto px-4 justify-between">
+        <div className="hidden md:flex w-full md:flex-row lg:max-w-7xl max-w-5xl mx-auto px-4 justify-between dark:bg-black">
           <aside className="w-full md:w-1/4 bg-[#198754]">
             <ul className="tabs flex flex-col list-none py-0 !pr-[3px] pl-[10px]">
               {TABS.map((tab) => (
@@ -99,7 +99,7 @@ export default async function PageComponent({ params, searchParams }: { params: 
                   <Link
                     href={`?tab=${tab.id}`}
                     className={`tab-button block p-3 rounded-lg transition-colors duration-300 
-                    !no-underline font-semibold  ${activeTab === tab.id ? 'bg-primary !text-white' : 'bg-white hover:bg-green-100'}`}
+                    !no-underline font-semibold dark:bg-black  ${activeTab === tab.id ? 'bg-primary !text-white' : 'bg-white hover:bg-green-100'}`}
                   >
                     {tab.label}
                   </Link>
@@ -110,14 +110,14 @@ export default async function PageComponent({ params, searchParams }: { params: 
 
           {/* Tab Content and Image */}
           <div className="tab-content flex w-full md:w-3/4 bg-white ml-4 rounded-lg">
-            <div className="w-2/3 pr-4">
-              <h1 className="pt-12">{page.title?.rendered}</h1>
+            <div className="w-2/3 pr-4 dark:bg-black">
+              <h1 className="pt-12 dark:text-white">{page.title?.rendered}</h1>
               <div className="mt-6">
                 <div dangerouslySetInnerHTML={{ __html: page.acf?.[activeTab] || 'No content available.' }} />
               </div>
             </div>
 
-            <div className="w-1/3">
+            <div className="w-1/3 dark:bg-black">
               {page?.imageUrl && (
                 <Image 
                   src={page.imageUrl || '/default-image.jpg'}
@@ -128,7 +128,7 @@ export default async function PageComponent({ params, searchParams }: { params: 
                 />
               )}
 
-              <p className="mt-4 text-gray-700">
+              <p className="mt-4 text-gray-700 dark:text-white">
                 {page.acf?.description || 'No description available.'}
               </p>
             </div>
