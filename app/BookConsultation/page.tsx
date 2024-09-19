@@ -53,7 +53,7 @@ const initialFields = [
   }
 ];
 
-const BookConsultationForm = ({ title = "احجز استشارة", description = "نحن هنا لمساعدتك في كل خطوة على طريق التعافي. تواصل معنا للحجز واستشارة خبرائنا حول أفضل خيارات العلاج المتاحة لك." }) => {
+const BookConsultationForm = () => {
   const [fields, setFields] = useState<any>(initialFields);
   const [message, setMessage] = useState<any>(null);
 
@@ -115,9 +115,9 @@ const BookConsultationForm = ({ title = "احجز استشارة", description =
             <div className="form-top mb-3">
               <div className="common-title">
                 <h2 className="heading inline-block border-b-4 pb-1 border-[#198754] pr-2 text-2xl font-bold">
-                  {title}
+                  احجز استشارة
                 </h2>
-                <h5>{description}</h5>
+                <h5> نحن هنا لمساعدتك في كل خطوة على طريق التعافي. تواصل معنا للحجز واستشارة خبرائنا حول أفضل خيارات العلاج المتاحة لك</h5>
               </div>
 
               <ul className="mt-4 space-y-2">
