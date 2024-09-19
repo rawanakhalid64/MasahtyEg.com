@@ -190,7 +190,7 @@ const Footer = () => {
               {item.name}
             </Link>
         ))} */}
-          <LazyYouTube videoId="T3mgD-mJZVI" width="400px" height="350px" />
+          {/* <LazyYouTube videoId="T3mgD-mJZVI" width="400px" height="350px" /> */}
           </div>
         </Container>
         <Container className="border-t not-prose flex flex-col md:flex-row md:gap-2 gap-6 justify-between md:items-center">

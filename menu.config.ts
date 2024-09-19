@@ -4,9 +4,7 @@ export const mainMenu = [
   { name: "من نحن", href: "/about" },
   { name: "البرامج", href: "/pages" },
   { name: "عالم التعافي ", href: "/posts" },
-  { name: " الدكاترة ", href: "/doctors" },
   { name: " احجز استشارة ", href: "/BookConsultation" },
-
 ]
 
 export const contentMenu = [
