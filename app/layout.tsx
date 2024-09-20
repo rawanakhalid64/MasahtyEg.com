@@ -28,9 +28,9 @@ const fontSans = FontSans({
 });
 
 export const metadata: Metadata = {
-  title: "Mashety",
+  title: "مصحتي",
   description:
-    "Mashety",
+    "مؤسسة متخصصة في الطب النفسي وعلاج الإدمان، تعتمد على منهج شامل لتحسين حياة الأفراد المتأثرين بالمشاكل النفسية والسلوكية والإدمان،| برامج تأهيلية وعلاجية متخصصة للرجال والسيدات والمراهقين وجميع الأعمار | تواصل معنا.",
   metadataBase: new URL("https://masahtyeg.com"),
 };
 

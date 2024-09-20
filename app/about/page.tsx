@@ -15,7 +15,7 @@ const Page = async () => {
               {/* Image for the first block */}
               <div className="w-full md:w-1/2">
                 <Image
-                  src="https://res.cloudinary.com/dvgqyejfc/image/upload/v1726566535/20824856_6330601_b71bpg.webp"
+                  src="https://res.cloudinary.com/dvgqyejfc/image/upload/v1726817677/19913525_6164418-removebg-preview_s9yjmq.webp"
                   alt="Description of Image 1"
                   layout="responsive"
                   width={1200}

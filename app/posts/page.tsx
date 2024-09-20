@@ -17,6 +17,14 @@ import {
 import { Section, Container } from "@/components/craft";
 import PostCard from "@/components/posts/post-card";
 import FilterPosts from "./filter";
+import { Metadata } from "next";
+
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: "المدونة",
+    description: "معلومات وإرشادات تهمك وتفيد الأسرة عن المشاكل النفسية والإدمان وأحدث طرق العلاج يقدمها الدكتور عبد الرحمن حماد رئيس المركزمعلومات وإرشادات تهمك وتفيد الأسرة عن المشاكل النفسية والإدمان وأحدث طرق العلاج يقدمها الدكتور عبد الرحمن حماد رئيس المركز",
+  };
+}
 
 export default async function Page({
   searchParams,
