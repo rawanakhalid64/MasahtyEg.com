@@ -199,7 +199,7 @@ const BookConsultationForm = () => {
         </div>
         <div className="w-full lg:w-1/2 md:w-7/12 gap-8">
           <Image
-          src="https://res.cloudinary.com/dvgqyejfc/image/upload/v1726574143/19913525_6164418_qggq7z.webp"
+          src="https://res.cloudinary.com/dvgqyejfc/image/upload/v1726817677/19913525_6164418-removebg-preview_s9yjmq.webp"
             alt="Consultation Image"
             width={600} // Specify a width
             height={500} // Specify a height

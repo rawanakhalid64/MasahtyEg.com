@@ -144,7 +144,7 @@ const ExampleJsx = async () => {
       
       <div className="w-[300px] h-[300px] relative">
         <Image
-          src="https://res.cloudinary.com/dvgqyejfc/image/upload/v1726574143/19913525_6164418_qggq7z.webp"
+          src="https://res.cloudinary.com/dvgqyejfc/image/upload/v1726817677/19913525_6164418-removebg-preview_s9yjmq.webp"
           alt="Consultation Image"
           layout="fill" // Makes the image fill the container
           objectFit="cover" // Ensures the image maintains its aspect ratio
