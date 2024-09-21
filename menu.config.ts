@@ -8,8 +8,7 @@ export const mainMenu = [
 ]
 
 export const contentMenu = [
-  { name: "categories", href: "/posts/categories" },
-  { name: "tags", href: "/posts/tags" },
-  { name: "authors", href: "/posts/authors" }
+  { name: "الفئات", href: "/posts/categories" },
+  { name: "الكلمات", href: "/posts/tags" },
+  { name: "الكتاب", href: "/posts/authors" }
 ]
-//icons
