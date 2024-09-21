@@ -2,7 +2,7 @@
 export const mainMenu = [
   { name: "الرئيسية", href: "/" },
   { name: "من نحن", href: "/about" },
-  { name: "البرامج", href: "/pages" },
+  { name: "البرامج", href: "/programs" },
   { name: "عالم التعافي ", href: "/posts" },
   { name: " احجز استشارة ", href: "/BookConsultation" },
 ]
