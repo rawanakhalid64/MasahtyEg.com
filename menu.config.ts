@@ -2,15 +2,14 @@
 export const mainMenu = [
   { name: "الرئيسية", href: "/" },
   { name: "من نحن", href: "/about" },
-  { name: "البرامج", href: "/pages" },
+  { name: "البرامج", href: "/programs" },
   { name: "عالم التعافي ", href: "/posts" },
   { name: " الدكاترة ", href: "/doctors" },
   { name: " احجز استشارة ", href: "/BookConsultation" },
 ]
 
 export const contentMenu = [
-  { name: "categories", href: "/posts/categories" },
-  { name: "tags", href: "/posts/tags" },
-  { name: "authors", href: "/posts/authors" }
+  { name: "الفئات", href: "/posts/categories" },
+  { name: "الكلمات", href: "/posts/tags" },
+  { name: "الكتاب", href: "/posts/authors" }
 ]
-//icons

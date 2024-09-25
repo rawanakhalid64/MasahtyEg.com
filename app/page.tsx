@@ -49,9 +49,9 @@ const ExampleJsx = async () => {
 
   return (
     <>
-      <section className="hero h-[calc(100vh-72px)] bg-gray-50 xl:pb-0 overflow-hidden dark:bg-black">
-        <div className="container mx-auto h-full">
-          <div className="flex flex-col xl:flex-row items-center justify-between h-full ">
+      <section className="hero h-auto xl:h-[calc(100vh-72px)] bg-gray-50 xl:pb-0 overflow-hidden dark:bg-black">
+        <div className="container mx-auto h-auto xl:h-full">
+          <div className="flex flex-col xl:flex-row items-center justify-between h-auto xl:h-full ">
             {/* text */}
             <div className="hero__text xl:w-[48%] ">
               <div
