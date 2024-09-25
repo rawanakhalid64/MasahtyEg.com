@@ -31,21 +31,21 @@ export async function getAllPosts(filterParams?: {
   tag?: string;
   category?: string;
 }): Promise<Post[]> {  
-  const url = getUrl("/wp-json/wp/v2/posts", { author: filterParams?.author, tags: filterParams?.tag, categories: filterParams?.category });
+  const url = getUrl("/wp-json/wp/v2/posts", { author: filterParams?.author, tags: filterParams?.tag, categories: filterParams?.category, cashe: "no-store" });
   const response = await fetch(url);
   const posts: Post[] = await response.json();
   return posts;
 }
 
 export async function getPostById(id: number): Promise<Post> {
-  const url = getUrl(`/wp-json/wp/v2/posts/${id}`);
+  const url = getUrl(`/wp-json/wp/v2/posts/${id}`, {cashe: "no-store"});
   const response = await fetch(url);
   const post: Post = await response.json();
   return post;
 }
 
 export async function getPostBySlug(slug: string): Promise<Post> {
-  const url = getUrl("/wp-json/wp/v2/posts", { slug });
+  const url = getUrl("/wp-json/wp/v2/posts", { slug, cashe: "no-store" });
   const response = await fetch(url);
   const post: Post[] = await response.json();
   return post[0];

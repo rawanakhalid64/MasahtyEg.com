@@ -114,6 +114,63 @@ const ExampleJsx = async () => {
         </div>
       </section>
 
+      <section className="container bg-gray-50 mx-auto pb-4 dark:bg-black">
+        {/* Section Title */}
+        <div className="w-full flex flex-col items-center justify-center">
+          <h2 className="border-b-2 py-3 border-[#198754]">
+            الأطباء والأخصائيين النفسيين | دار الإستشارات النفسية
+          </h2>
+        </div>
+
+        {/* Grid of Doctors */}
+        <div className="grid md:grid-cols-3 gap-6 mt-6 not-prose">
+          {doctors.map((doctor: any) => (
+            <Link
+              key={doctor.id}
+              className="group border bg-white rounded-lg flex flex-col justify-between hover:shadow-lg transition-all transform hover:scale-[1.02] overflow-hidden"
+              href={`doctors/${doctor.slug}`}
+            >
+              <div
+                key={doctor.id}
+                className="group border bg-white rounded-lg flex flex-col justify-between hover:shadow-lg transition-all transform hover:scale-[1.02] overflow-hidden"
+              >
+                {/* Doctor's Image */}
+                <Image
+                  src={doctor.imageUrl}
+                  alt={doctor.name}
+                  width={300}
+                  height={300}
+                  className="rounded-t-lg object-cover h-auto w-full group-hover:opacity-90 transition-opacity duration-300"
+                />
+
+                {/* Doctor's Information */}
+                <div className="p-4 dark:bg-black">
+                  {/* Name and Title */}
+                  <span className="block text-lg font-semibold  !text-[#198754] group-hover:text-[#198754] transition-colors duration-300">
+                    {doctor.name}
+                  </span>
+                  <span className="block text-md text-gray-500 dark:!text-[#198754] mb-2">
+                    {doctor.title.rendered}
+                  </span>
+
+                  {/* Phone Number */}
+                  <p className="text-gray-600 dark:text-white mb-2">
+                    <strong className="!text-[#198754]">رقم الهاتف:</strong> {doctor.acf.phone}
+                  </p>
+
+                  {/* Description */}
+                  <p className="text-gray-600 dark:text-white">{doctor.acf.description}</p>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+        <div className="flex items-center justify-center">
+        <Link className="btn btn-lg rounded-full inline-block !my-4 px-3 py-1 !no-underline font-semibold !text-white bg-[#198754] !mx-auto xl:!mx-0  hover:bg-green-600 transition-colors duration-300"
+               href={'/doctors'}>  كل الدكاترة </Link>
+        </div>
+      </section>
+
       <section className="bg-gray-50 py-12 xl:pt-0 xl:pb-4 overflow-hidden dark:bg-black">
         <Info infoData={infoData} />
         <div className="flex items-center justify-center">

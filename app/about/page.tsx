@@ -15,7 +15,7 @@ const Page = async () => {
               {/* Image for the first block */}
               <div className="w-full md:w-1/2">
                 <Image
-                  src="https://res.cloudinary.com/dvgqyejfc/image/upload/v1726817677/19913525_6164418-removebg-preview_s9yjmq.webp"
+                  src="https://res.cloudinary.com/dvgqyejfc/image/upload/v1727276749/close-up-chairs-circle-used-aa-group-meeting-with-people-therapist-office-with-furniture-designed-therapy-session-against-alcoholism-drug-addiction-rehab-space_eh3dxv.webp"
                   alt="Description of Image 1"
                   layout="responsive"
                   width={1200}
@@ -99,7 +99,16 @@ const Page = async () => {
 </div>
 
 
-</div>
+
+          {/* LazyYouTube Section */}
+          <div className="flex justify-center gap-9 mt-8">
+            {/* First Video */}
+            <LazyYouTube videoId="T3mgD-mJZVI" />
+
+            {/* Second Video */}
+            <LazyYouTube videoId="T3mgD-mJZVI" />
+          </div>
+        </div>
       </section>
     </>
   );

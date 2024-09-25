@@ -28,9 +28,9 @@ const fontSans = FontSans({
 });
 
 export const metadata: Metadata = {
-  title: "مصحتي",
+  title: "Mashety",
   description:
-    "مؤسسة متخصصة في الطب النفسي وعلاج الإدمان، تعتمد على منهج شامل لتحسين حياة الأفراد المتأثرين بالمشاكل النفسية والسلوكية والإدمان،| برامج تأهيلية وعلاجية متخصصة للرجال والسيدات والمراهقين وجميع الأعمار | تواصل معنا.",
+    "Mashety",
   metadataBase: new URL("https://masahtyeg.com"),
 };
 
@@ -71,6 +71,7 @@ interface NavProps {
 }
 
 const Nav: React.FC<NavProps> = ({ className, children, id }) => {
+  
   return (
     <nav
       className={cn(
@@ -97,48 +98,49 @@ const Nav: React.FC<NavProps> = ({ className, children, id }) => {
         {children}
 
         <div className="flex items-center gap-2">
-          <div className="mx-2 hidden md:flex">
-            {mainMenu.map((item) =>
-              item.name === "البرامج" ? (
-                <div key={item.name} className="relative group">
-                  <Button variant="ghost" size="sm">
-                    <span className="text-white text-xl hover:text-black">{item.name}</span>
-                  </Button>
-
-                  {/* Dropdown Menu */}
-                  <div className="absolute top-full mt-2 w-48 bg-white shadow-lg rounded-md py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-500">
-                    <Link
-                      href="/programs"
-                      className="block px-4 py-2 text-[#198754] hover:bg-gray-100"
-                    >
-                      برامج الادمان
-                    </Link>
-                    <Link
-                      href="/mental-health-programs"
-                      className="block px-4 py-2 text-[#198754] hover:bg-gray-100"
-                    >
-                      برامج الامراض النفسيه
-                    </Link>
-                  </div>
-                </div>
-              ) : (
-                <Button key={item.name} asChild variant="ghost" size="sm">
-                  <Link href={item.href} className="text-white text-xl">
-                    {item.name}
-                  </Link>
-                </Button>
-              )
-            )}
-          </div>
-
-          <Button asChild className="hidden sm:flex">
-            <Link href="/contactus" className="text-xl">
-              تواصل معنا
-            </Link>
+  <div className="mx-2 hidden md:flex">
+    {mainMenu.map((item) =>
+      item.name === "البرامج" ? (
+        <div key={item.name} className="relative group">
+          <Button variant="ghost" size="sm">
+            <span className="text-white text-xl hover:text-black">{item.name}</span>
           </Button>
 
-          <MobileNav />
+          {/* Dropdown Menu */}
+          <div className="absolute top-full mt-2 w-48 bg-white shadow-lg rounded-md py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:transition-opacity group-hover:duration-500 transition-all delay-300">
+            <Link
+              href="/programs"
+              className="block px-4 py-2 text-[#198754] hover:bg-gray-100"
+            >
+              برامج الادمان
+            </Link>
+            <Link
+              href="/mental-health-programs"
+              className="block px-4 py-2 text-[#198754] hover:bg-gray-100"
+            >
+              برامج الامراض النفسيه
+            </Link>
+          </div>
         </div>
+      ) : (
+        <Button key={item.name} asChild variant="ghost" size="sm">
+          <Link href={item.href} className="text-white text-xl">
+            {item.name}
+          </Link>
+        </Button>
+      )
+    )}
+  </div>
+
+  <Button asChild className="hidden sm:flex">
+    <Link href="/contactus" className="text-xl">
+      تواصل معنا
+    </Link>
+  </Button>
+
+  <MobileNav />
+</div>
+
       </div>
     </nav>
   );
@@ -190,7 +192,7 @@ const Footer = () => {
               {item.name}
             </Link>
         ))} */}
-          {/* <LazyYouTube videoId="T3mgD-mJZVI" width="400px" height="350px" /> */}
+          <LazyYouTube videoId="T3mgD-mJZVI" width="400px" height="350px" />
           </div>
         </Container>
         <Container className="border-t not-prose flex flex-col md:flex-row md:gap-2 gap-6 justify-between md:items-center">

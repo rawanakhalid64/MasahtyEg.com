@@ -6,8 +6,9 @@ import { FC } from 'react';
 //     lng: 29.9187, // Longitude for Alexandria, Egypt
 //   };
 const center = {
-    lat: 30.0444, // Latitude for Cairo, Egypt
-    lng: 31.2357, // Longitude for Cairo, Egypt
+    lat: 29.830026, // Latitude for Cairo, Egypt
+    lng: 31.300753
+    ,
   };
   
   // Rename the component to avoid conflict with the imported GoogleMap
