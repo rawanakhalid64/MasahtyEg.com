@@ -184,7 +184,16 @@ const Footer = () => {
               {/* <Balancer>{metadata.description}</Balancer> */}
             </p>
           </div> 
-          
+          <div className="flex flex-col gap-2   text-sm">
+    <div>
+      <h5 className="font-bold  pb-4  text-base">تواصل معنا</h5>
+      <p>الايميل: <a href="mailto:example@example.com" className="hover:underline">masahty@gmail.com</a></p>
+      <p>الهاتف: <a href="tel:+01090731111" className="hover:underline">+01090731111</a></p>
+      <p>الهاتف: <a href="tel:+01096281111" className="hover:underline">+01096281111</a></p>
+
+      <p>العنوان:81 شارع حوض الروض - فيلا بالحديقة - قسم تان شبرانيت - الجيزة</p>
+    </div>
+  </div>
           <div className="flex flex-col gap-2 text-sm">
             {/* <h5 className="font-medium text-base">Blog</h5>
             {contentMenu.map((item) => (
