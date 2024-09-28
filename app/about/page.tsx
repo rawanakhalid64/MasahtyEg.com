@@ -101,13 +101,11 @@ const Page = async () => {
 
 
           {/* LazyYouTube Section */}
-          <div className="flex justify-center gap-9 mt-8">
-            {/* First Video */}
+          {/* <div className="flex justify-center gap-9 mt-8">
             <LazyYouTube videoId="T3mgD-mJZVI" />
 
-            {/* Second Video */}
             <LazyYouTube videoId="T3mgD-mJZVI" />
-          </div>
+          </div> */}
         </div>
       </section>
     </>

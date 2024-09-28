@@ -99,14 +99,12 @@ const Nav: React.FC<NavProps> = ({ className, children, id }) => {
 
         <div className="flex items-center gap-2">
   <div className="mx-2 hidden md:flex">
-    {mainMenu.map((item) =>
-      item.name === "البرامج" ? (
+    {/* item.name === "البرامج" ? (
         <div key={item.name} className="relative group">
           <Button variant="ghost" size="sm">
             <span className="text-white text-xl hover:text-black">{item.name}</span>
           </Button>
 
-          {/* Dropdown Menu */}
           <div className="absolute top-full mt-2 w-48 bg-white shadow-lg rounded-md py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:transition-opacity group-hover:duration-500 transition-all delay-300">
             <Link
               href="/programs"
@@ -122,7 +120,9 @@ const Nav: React.FC<NavProps> = ({ className, children, id }) => {
             </Link>
           </div>
         </div>
-      ) : (
+      ) :  */}
+    {mainMenu.map((item) =>
+      (
         <Button key={item.name} asChild variant="ghost" size="sm">
           <Link href={item.href} className="text-white text-xl">
             {item.name}
@@ -187,22 +187,22 @@ const Footer = () => {
           <div className="flex flex-col gap-2   text-sm">
     <div>
       <h5 className="font-bold  pb-4  text-base">تواصل معنا</h5>
-      <p>الايميل: <a href="mailto:example@example.com" className="hover:underline">masahty@gmail.com</a></p>
+      <p>الايميل: <a href="mailto:example@example.com" className="hover:underline">masahtyeg@gmail.com</a></p>
       <p>الهاتف: <a href="tel:+01090731111" className="hover:underline">+01090731111</a></p>
       <p>الهاتف: <a href="tel:+01096281111" className="hover:underline">+01096281111</a></p>
 
       <p>العنوان:81 شارع حوض الروض - فيلا بالحديقة - قسم تان شبرانيت - الجيزة</p>
     </div>
   </div>
-          <div className="flex flex-col gap-2 text-sm">
+          {/* <div className="flex flex-col gap-2 text-sm"> */}
             {/* <h5 className="font-medium text-base">Blog</h5>
             {contentMenu.map((item) => (
             <Link key={item.name} href={item.href} className="hover:underline underline-offset-4">
               {item.name}
             </Link>
         ))} */}
-          <LazyYouTube videoId="T3mgD-mJZVI" width="400px" height="350px" />
-          </div>
+          {/* <LazyYouTube videoId="T3mgD-mJZVI" width="400px" height="350px" /> */}
+          {/* </div> */}
         </Container>
         <Container className="border-t not-prose flex flex-col md:flex-row md:gap-2 gap-6 justify-between md:items-center">
           <ThemeToggle />
