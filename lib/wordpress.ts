@@ -164,6 +164,40 @@ export async function getAllPrograms(): Promise<ProgramWithImage[]> {
   return programsWithImages;
 }
 
+export async function getAllPrograms2(): Promise<ProgramWithImage[]> {
+  const url = getUrl("/wp-json/wp/v2/program2");
+  
+  // Fetch programs data
+  const response = await fetch(url, { cache: "no-store" });
+  const programs: Program[] = await response.json();
+  
+  // Process the programs to include image URLs
+  const programsWithImages: ProgramWithImage[] = await Promise.all(
+    programs.map(async (program) => {
+      if (program.featured_media) {
+        // Fetch media data for each program
+        const mediaResponse = await fetch(
+          `${baseUrl}/wp-json/wp/v2/media/${program.featured_media}`,
+          { cache: "no-store" }
+        );
+        const mediaData = await mediaResponse.json();
+        return {
+          ...program,
+          imageUrl: mediaData.source_url, // Use the image URL for display
+        } as ProgramWithImage;
+      }
+      // If no featured media, return program without the imageUrl
+      return {
+        ...program,
+        imageUrl: "", // Fallback to empty string or placeholder image URL
+      } as ProgramWithImage;
+    })
+  );
+
+  // Return programs with image data
+  return programsWithImages;
+}
+
 /**
  * A program with its featured media image.
  */

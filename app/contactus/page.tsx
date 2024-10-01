@@ -125,15 +125,15 @@ const ContactForm = () => {
               <ul className="mt-4 space-y-2">
                 <li>
                   <span className="font-bold text-[#198754]">الايميل: </span>
-                  Info@fortis.com
+                  masahtyeg@gmail.com
                 </li>
                 <li>
                   <span className="font-bold text-[#198754]">رقم المركز: </span>
-                  +230 5674 2343
+                  +01090731111
                 </li>
                 <li>
                   <span className="font-bold text-[#198754]">عنوانا: </span>
-                  Gladstone, Rose Hill
+                  81 شارع حوض الروض - فيلا بالحديقة - قسم تان شبرانيت - الجيزة
                 </li>
               </ul>
             </div>

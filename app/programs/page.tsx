@@ -1,4 +1,4 @@
-import { getAllPages, getAllPrograms } from "@/lib/wordpress";
+import { getAllPages, getAllPrograms, getAllPrograms2 } from "@/lib/wordpress";
 import { Section, Container } from "@/components/craft";
 import Link from "next/link";
 import Image from "next/image";
@@ -21,11 +21,12 @@ import { Metadata } from "next";
 
 export default async function Page() {
   const programs = await getAllPrograms();
+  const programs2 = await getAllPrograms2()
 
   return (
     <section>
       <Services servicesData={programs} />
-      <Services servicesData={programs} />
+      <Services servicesData={programs2} slug="programs2" />
   
     </section>
   );

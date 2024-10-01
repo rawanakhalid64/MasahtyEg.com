@@ -13,15 +13,16 @@ interface Service {
 // Define the props type for the Services component
 interface ServicesProps {
   servicesData: any[];
-  desc?: boolean
+  desc?: boolean,
+  slug?: string
 }
 
-const Services: React.FC<ServicesProps> = ({ servicesData, desc = true }) => {
+const Services: React.FC<ServicesProps> = ({ servicesData, slug = "programs", desc = true }) => {
   return (
       <div className="container mx-auto">
             <div className=" w-full flex flex-col items-center justify-center">
               <h2 className=" border-b-2  py-3 border-[#198754]">
-              اهم البرامج العلاجية
+                {slug === "programs" ? "برامج الأدمان" : "برامج الأمراض النفسية "}
               </h2>
             </div>
       <div className="grid md:grid-cols-3 gap-6 mt-6 not-prose  dark:bg-black">
@@ -30,7 +31,7 @@ const Services: React.FC<ServicesProps> = ({ servicesData, desc = true }) => {
             <Link
               key={service.id}
               className="group border rounded-lg flex flex-col justify-between hover:shadow-lg transition-all transform hover:scale-[1.02] overflow-hidden"
-              href={`programs/${service.slug}`}
+              href={`${slug}/${service.slug}`}
             >
               <Image
                 src={service.imageUrl}
