@@ -45,7 +45,19 @@ export default function RootLayout({
 
   return (
     <html lang="en" suppressHydrationWarning>
-      <head />
+      <head>
+        {/* Google Tag Manager script */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16449453430"></script>
+        <script>
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-16449453430');
+          `}
+        </script>
+        <GoogleAnalytics gaId="AW-16449453430" />
+      </head>
       <body
         className={cn("min-h-screen font-sans antialiased", fontSans.variable)}
       >
@@ -61,7 +73,6 @@ export default function RootLayout({
         </ThemeProvider>
         <Analytics />
       </body>
-      <GoogleAnalytics gaId="AW-16449453430" /> 
     </html>
   );
 }
