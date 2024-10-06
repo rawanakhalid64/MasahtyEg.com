@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import { Analytics } from "@vercel/analytics/react";
-
+import { GoogleAnalytics } from '@next/third-parties/google';
 import LazyYouTube from "@/components/video/LazyYouTube";
 import "./globals.css";
 
@@ -42,6 +42,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head />
@@ -60,6 +61,7 @@ export default function RootLayout({
         </ThemeProvider>
         <Analytics />
       </body>
+      <GoogleAnalytics gaId="G-XYZ1234567" /> 
     </html>
   );
 }
