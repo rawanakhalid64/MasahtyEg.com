@@ -1,38 +1,36 @@
 // app/conversion/page.tsx
 
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
-import Head from 'next/head';
+"use client"; // This marks the component as a Client Component
 
+import { useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
+import Head from 'next/head';
+import { Suspense } from 'react';
+
+// ConversionPage component
 export default function ConversionPage() {
-  const router = useRouter();
-  
-  // Extract transactionId from the URL query parameters
-  const { transactionId } = router.query; // The transaction ID should be passed as a query parameter
+  const searchParams = useSearchParams();
+  const transactionId = searchParams.get('transactionId');
 
   useEffect(() => {
-    // Check if window is defined and transactionId is available
     if (typeof window !== 'undefined' && transactionId) {
-      // Fire Google Ads conversion event
       window.gtag('event', 'conversion', {
         send_to: 'AW-16449453430/HC6JCPyqo9oZEPb62qM9',
-        transaction_id: transactionId, // Use the transactionId from the query
+        transaction_id: transactionId,
       });
     }
-  }, [transactionId]); // Dependency array includes transactionId to re-run effect if it changes
+  }, [transactionId]);
 
   return (
-    <html lang="en">
+    <>
       <Head>
         <title>Thank You for Your Order</title>
         <meta name="description" content="Your order was successful." />
-        {/* Ensure the Google Tag is loaded; if using <GoogleAnalytics> globally, it should be handled elsewhere */}
       </Head>
-      <body>
-        <h1>Thank You for Your Order!</h1>
-        {/* Optionally, you can display the transaction ID or any other relevant information */}
-        {transactionId && <p>Your transaction ID is: {transactionId}</p>}
-      </body>
-    </html>
+      <h1>Thank You for Your Order!</h1>
+      {transactionId && <p>Your transaction ID is: {transactionId}</p>}
+    </>
   );
 }
+
+// If you want to keep the Suspense fallback, you can wrap it in your app layout file
