@@ -5,7 +5,7 @@ import Balancer from "react-wrap-balancer";
 import BookConsultationForm from "../app/BookConsultation/page"
 // Components
 import Link from "next/link";
-
+import { FaWhatsapp } from 'react-icons/fa';
 // Icons
 import { File, Pen, Tag, Boxes, User, Folder } from "lucide-react";
 import Services from "@/components/services/services";
@@ -89,8 +89,18 @@ const ExampleJsx = async () => {
                 شامل لتحسين حياة الأفراد المتأثرين بالمشاكل النفسية والسلوكية
                 والإدمان، من خلال تقديم خطط علاجية وبرامج إعادة تأهيل فعّالة.
               </p>
-              <Link className="btn btn-lg rounded-full inline-block !my-4 px-3 py-1 !no-underline font-semibold !text-white bg-[#198754] !mx-auto xl:!mx-0  hover:bg-green-600 transition-colors duration-300"
-               href={'/contactus'}>اتصل بنا</Link>
+              <div className="flex items-center gap-3">
+      {/* WhatsApp Link */}
+      <Link
+        className="flex items-center btn btn-lg rounded-full  !my-4 px-3 py-1 !no-underline font-semibold !text-white bg-[#198754] !mx-auto xl:!mx-0 hover:bg-green-600 transition-colors duration-300"
+        href="https://wa.me/201090731111" // WhatsApp link
+        target="_blank" // Open in new tab
+      >
+        {/* WhatsApp Icon */}
+        <FaWhatsapp className="mr-2" size={24} />
+        اتصل بنا
+      </Link>
+    </div>
             </div>
 
             {/* image */}
