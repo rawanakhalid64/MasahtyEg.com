@@ -5,6 +5,8 @@ export const mainMenu = [
   { name: "البرامج", href: "/programs" },
   { name: "عالم التعافي ", href: "/posts" },
   { name: " احجز استشارة ", href: "/BookConsultation" },
+  { name: " معرض الصور ", href: "/photos" },
+
 ]
 
 export const contentMenu = [

@@ -4,7 +4,7 @@ import { Inter as FontSans } from "next/font/google";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import { Analytics } from "@vercel/analytics/react";
 import { GoogleAnalytics } from '@next/third-parties/google';
-import LazyYouTube from "@/components/video/LazyYouTube";
+import LazyYouTube from "@/components/video/LazyVideo";
 import "./globals.css";
 
 import { Button } from "@/components/ui/button";
